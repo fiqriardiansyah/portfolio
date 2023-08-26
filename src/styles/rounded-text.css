@@ -1,0 +1,33 @@
+/* rt = rounded text */
+:root {
+    --radius-rt: 100px;
+    --frame-size-rt: calc(var(--radius-rt) / 3);
+    --d-outer-rt: calc(var(--radius-rt) * 2);
+    --d-inner-rt: calc(var(--d-outer-rt) - var(--frame-size-rt));
+    --font-size-rt: calc(var(--radius-rt) / 10);
+}
+
+.circle {
+    position: relative;
+    width: var(--d-outer-rt);
+    height: var(--d-outer-rt);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: rotateText 10s linear infinite;
+}
+
+.text p span {
+    position: absolute;
+    left: 50%;
+    font-size: 1.2em;
+    transform-origin: 0 var(--radius-rt);
+}
