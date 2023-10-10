@@ -83,7 +83,7 @@ const TopNav = () => {
               </Magnet>
             </Link>
           </WithCursorElement>
-          <div className="flex items-center gap-4">
+          <div className=" hidden items-center gap-4 lg:flex">
             <WithCursorElement state={{ element: langInCursor.in as any }}>
               <span className={`${linkClass} cursor-not-allowed`}>IN</span>
             </WithCursorElement>

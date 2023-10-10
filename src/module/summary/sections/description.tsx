@@ -2,7 +2,7 @@
 import React from 'react'
 const Description = () => {
   return (
-    <div className="CONTAINER">
+    <div className="CONTAINER min-h-screen">
       <h1 className="font-display text-6xl font-semibold text-secondary underline lg:text-8xl">Summary</h1>
       <div className="h-[20vh]"></div>
       <div className="flex flex-col">

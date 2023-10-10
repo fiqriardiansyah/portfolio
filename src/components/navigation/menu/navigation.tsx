@@ -123,7 +123,7 @@ function NavigationLink({ onClose, linkTo, text, preview }: NavigationLinkProps)
           >
             <div className="relative h-screen w-screen translate-x-[10vw] scale-[0.6]">
               <TechStamp className="absolute right-0 top-0 z-30 scale-100" />
-              <div className="h-full w-full overflow-hidden">{preview}</div>
+              <div className="h-screen w-full overflow-hidden">{preview}</div>
             </div>
           </motion.div>
         )}

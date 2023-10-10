@@ -9,6 +9,7 @@ import PWASnake from './pwa'
 import ReduxSnake from './redux'
 import FirebaseSnake from './firebase'
 import KeepLearningSnake from './keep-learning'
+import React from 'react'
 
 export default function ExpertiseSnake({ scrollY }: { scrollY: MotionValue<number> }) {
   const pathLength = useTransform(scrollY, [0, 0.3, 0.8], [0, 0, 1])

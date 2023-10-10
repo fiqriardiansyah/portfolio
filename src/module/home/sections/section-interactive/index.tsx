@@ -11,10 +11,11 @@ import MeIllustrateFace from 'module/home/sections/section-interactive/me-illust
 import MeIllustrateHair from 'module/home/sections/section-interactive/me-illustrate-hair'
 import MeIllustrateTop from 'module/home/sections/section-interactive/me-illustrate-top'
 import SectionInteractiveMobile from 'module/mobile/home/section-interactive'
-import { memo, useContext, useEffect, useRef, useState } from 'react'
+import { memo, useContext, useEffect, useRef, useState, lazy, Suspense } from 'react'
 import { AiOutlineArrowDown, AiOutlineArrowRight } from 'react-icons/ai'
-import ExpertiseSnake from './expertise-snake'
 import HandPeace from './hand-peace'
+
+const ExpertiseSnake = lazy(() => import('./expertise-snake'))
 
 const Default = () => {
   const [containerScope, containerAnimate] = useAnimate()
@@ -168,7 +169,9 @@ const Default = () => {
                 <MeIllustrateHair id="hair-illustration" className="relative z-10 mb-[-3%]" />
                 <div id="face-illustration" className="relative">
                   <MeIllustrateTop className="pointer-events-none absolute left-0 top-0 w-full" />
-                  <ExpertiseSnake scrollY={scrollYExpertise} />
+                  <Suspense>
+                    <ExpertiseSnake scrollY={scrollYExpertise} />
+                  </Suspense>
                   <MeIllustrateFace onClickLeftEar={onClickLeftEar} className="pointer-events-none relative z-10" />
                   <div className="absolute left-1/2 mt-[-15%] w-screen -translate-x-1/2">
                     <div

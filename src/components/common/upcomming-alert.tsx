@@ -32,7 +32,7 @@ export default function UpCommingAlert() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 50, opacity: 0 }}
           transition={{ duration: 0.7, ease: easeDefault }}
-          className="fixed bottom-5 right-5 z-[99] rounded-lg bg-white p-5 shadow-2xl"
+          className="fixed inset-x-5 bottom-5 z-[99] rounded-lg bg-white p-5 shadow-2xl md:left-auto"
         >
           <div className="mb-10 flex items-center justify-between">
             <h1 className="m-0 font-spartan text-3xl font-semibold">Upcomming feature 📢</h1>
