@@ -16,6 +16,7 @@ export interface StateType {
   isSmallDevice?: boolean
   breakpoint?: keyof typeof breakPoints
   transitionAvailable?: boolean
+  showNotif?: boolean
 }
 
 export interface ContextType {
@@ -57,6 +58,20 @@ const StateProvider = ({ children }: any) => {
       breakPoint: breakP as keyof typeof breakPoints
     }
   }
+
+  useEffect(() => {
+    if (state?.isSplashShow) return
+    const isShowNotif = localStorage.getItem('alreadyshownotif')
+    if (!isShowNotif) {
+      localStorage.setItem('alreadyshownotif', 'true')
+      setTimeout(() => {
+        setState((prev) => ({
+          ...prev,
+          showNotif: true
+        }))
+      }, 5000)
+    }
+  }, [state?.isSplashShow])
 
   useEffect(() => {
     const getBreakPoint = getBP()

@@ -1,5 +1,6 @@
 import Cursor from 'components/common/cursor'
 import Introduction from 'components/common/introduction'
+import UpCommingAlert from 'components/common/upcomming-alert'
 import Menu from 'components/navigation/menu'
 import TopNav from 'components/navigation/top-nav'
 import CursorProvider from 'context/cursor'
@@ -72,6 +73,7 @@ const App = () => {
     <>
       <StateProvider>
         <CursorProvider>
+          <UpCommingAlert />
           <Cursor />
           <Menu />
           <Page />

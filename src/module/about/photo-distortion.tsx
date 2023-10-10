@@ -21,7 +21,7 @@ const PhotoDistortion = () => {
       speedIn: 2,
       easing: Power4,
       speedOut: 1.6,
-      image1: '/me.png',
+      image1: '/me.jpg',
       image2: '/tatti.webp',
       displacementImage: '/noise-transparent.png',
       imagesRatio: 1.4
@@ -32,7 +32,7 @@ const PhotoDistortion = () => {
       speedIn: 1.8,
       easing: Power4,
       speedOut: 1.4,
-      image1: '/me.png',
+      image1: '/me.jpg',
       image2: '/tatti.webp',
       displacementImage: '/noise-transparent.png',
       imagesRatio: 1.4
@@ -40,7 +40,7 @@ const PhotoDistortion = () => {
     const image3 = new hoverEffect({
       parent: imageContainerRef3.current,
       intensity: 0.3,
-      image1: '/me.png',
+      image1: '/me.jpg',
       image2: '/tatti.webp',
       displacementImage: '/noise-transparent.png',
       imagesRatio: 1.4
