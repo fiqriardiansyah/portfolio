@@ -22,15 +22,26 @@
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@johh/three-effectcomposer": "^0.1.0",
+    "@motionone/utils": "^10.15.1",
+    "@studio-freight/react-lenis": "^0.0.26",
+    "animejs": "^3.2.1",
+    "circletype": "^2.3.0",
     "clsx": "^2.0.0",
+    "flubber": "^0.4.2",
     "framer-motion": "^10.16.0",
     "gsap": "^3.12.2",
+    "hover-effect": "^1.2.1",
     "html-react-parser": "^4.2.1",
+    "meanderer": "^0.0.1",
+    "random-js": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-lottie": "^1.2.3",
-    "react-router-dom": "^6.15.0"
+    "react-router-dom": "^6.15.0",
+    "three": "^0.156.1",
+    "three-orbit-controls": "^82.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
@@ -39,6 +50,7 @@
     "@babel/preset-typescript": "^7.22.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
+    "@types/animejs": "^3.1.7",
     "@types/node": "^20.4.8",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",

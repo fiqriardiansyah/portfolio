@@ -8,6 +8,7 @@ export interface State {
   } | null
   className?: string
   bgColor?: string
+  speedCursor?: number | null
 }
 
 export interface CursorState {
@@ -19,7 +20,7 @@ export const CursorContext = createContext<CursorState>({})
 
 const CursorProvider = ({ children }: any) => {
   const [state, setState] = useState<State>({
-    className: `absolute transition-opacity transform -translate-x-1/2 -translate-y-1/2 !pointer-events-none flex items-center justify-center z-[91]`,
+    className: `fixed transition-opacity transform !bg-transparent -translate-x-1/2 -translate-y-1/2 !pointer-events-none flex items-center justify-center z-[93]`,
     bgColor: 'bg-transparent'
   })
 

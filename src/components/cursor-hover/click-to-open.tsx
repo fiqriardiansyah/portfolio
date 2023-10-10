@@ -1,4 +1,4 @@
-import RoundedText from 'components/common/rounded-text'
+import RoundedText from 'components/effect/rounded-text'
 import { motion } from 'framer-motion'
 
 const ClickToOpen = () => {
@@ -8,7 +8,7 @@ const ClickToOpen = () => {
         key="clicktoopenhover"
         text="click to open"
         textClassName="font-display !text-yellow-400 font-semibold capitalize"
-        size="60px"
+        size={60}
         space={20}
       />
     </motion.div>

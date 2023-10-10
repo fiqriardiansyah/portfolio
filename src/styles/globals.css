@@ -2,23 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 @layer {
+  body {
+    width: 100vw;
+    height: 100vh;
+    /* overflow-x: hidden; */
+    @apply bg-primary;
+  }
+
   .slide-in {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    background: black;
     transform-origin: bottom;
   }
   .slide-out {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    background: black;
     transform-origin: top;
   }
 
@@ -37,6 +46,15 @@
     opacity: 0.9;
     visibility: visible;
     pointer-events: none;
+  }
+
+  .CONTAINER {
+    @apply container mx-auto px-4 md:px-8 2xl:px-[5vw];
+  }
+
+  .txt {
+    @apply text-primary;
+    filter: invert(100%);
   }
 }
 

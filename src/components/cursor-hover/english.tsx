@@ -1,4 +1,4 @@
-import RoundedText from 'components/common/rounded-text'
+import RoundedText from 'components/effect/rounded-text'
 import { motion } from 'framer-motion'
 
 const EnglishHover = () => {
@@ -8,7 +8,7 @@ const EnglishHover = () => {
         text="-english -english"
         className="border-2 border-solid border-white"
         textClassName="font-display !text-white font-semibold capitalize"
-        size="60px"
+        size={60}
         space={20}
       >
         <div className="boder-solid h-[55%] w-[55%] rounded-full border-2 border-white backdrop-invert" />

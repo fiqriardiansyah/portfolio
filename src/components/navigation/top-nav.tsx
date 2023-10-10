@@ -1,20 +1,21 @@
+import Cursor from 'components/common/cursor'
 import WithCursorElement from 'components/common/with-cursor-element'
-import FiqriArdiansyahFollower from 'components/cursor-follower/fiqriardiansyah'
 import ClickToOpen from 'components/cursor-hover/click-to-open'
 import EnglishHover from 'components/cursor-hover/english'
 import FiqriArdiansyahHover from 'components/cursor-hover/fiqriardiansyah'
 import IndonesiaHover from 'components/cursor-hover/indonesia'
 import Magnet from 'components/effect/magnet'
+import CursorProvider from 'context/cursor'
 import { StateContext } from 'context/state'
-import { useContext, useEffect } from 'react'
 import { motion, useAnimate } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { easeDefault } from 'lib/utils'
+import { useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const TopNav = () => {
   const { setState, state } = useContext(StateContext)
   const [scope, animate] = useAnimate()
-  const linkClass = 'font-spartan text-secondary text-2xl'
+  const linkClass = 'font-spartan text-[#9EB384] text-lg md:text-xl lg:text-2xl'
 
   useEffect(() => {
     ;(async () => {
@@ -25,19 +26,12 @@ const TopNav = () => {
     })()
   }, [state?.menuShow])
 
-  const out = {
-    element: <FiqriArdiansyahFollower />,
-    key: FiqriArdiansyahFollower.key,
-    type: FiqriArdiansyahFollower.type
-  }
-
   const nameCursor = {
     in: {
       key: FiqriArdiansyahHover.key,
       type: FiqriArdiansyahHover.type,
       element: <FiqriArdiansyahHover />
-    },
-    out
+    }
   }
 
   const langInCursor = {
@@ -45,8 +39,7 @@ const TopNav = () => {
       key: IndonesiaHover.key,
       type: IndonesiaHover.type,
       element: <IndonesiaHover />
-    },
-    out
+    }
   }
 
   const langEnCursor = {
@@ -54,8 +47,7 @@ const TopNav = () => {
       key: EnglishHover.key,
       type: EnglishHover.type,
       element: <EnglishHover />
-    },
-    out
+    }
   }
 
   const menuCursor = {
@@ -63,8 +55,7 @@ const TopNav = () => {
       key: ClickToOpen.key,
       type: ClickToOpen.type,
       element: <ClickToOpen />
-    },
-    out
+    }
   }
 
   const menuClick = () => {
@@ -80,39 +71,34 @@ const TopNav = () => {
       exit={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: easeDefault }}
-      className="fixed left-0 top-0 z-10 w-screen"
+      className="sticky left-0 top-0 z-[80] h-0 w-screen"
     >
-      <nav className="container mx-auto flex w-full items-center justify-between px-4 py-6">
-        <WithCursorElement state={{ element: nameCursor.in as any }} fallbackState={{ element: nameCursor.out as any }}>
-          <Link to="/">
-            <Magnet>
-              <span className={linkClass}>FA - 23 ©️</span>
-            </Magnet>
-          </Link>
-        </WithCursorElement>
-        <div className="flex items-center gap-4">
-          <WithCursorElement state={{ element: langInCursor.in as any }} fallbackState={{ element: langInCursor.out as any }}>
+      <nav className="flex w-full items-center justify-between px-4 py-6 md:px-14">
+        <CursorProvider>
+          <Cursor />
+          <WithCursorElement state={{ element: nameCursor.in as any }}>
             <Link to="/">
-              <span className={linkClass}>IN</span>
+              <Magnet>
+                <span className={linkClass}>FA - 23 ©️</span>
+              </Magnet>
             </Link>
           </WithCursorElement>
-          <WithCursorElement state={{ element: langEnCursor.in as any }} fallbackState={{ element: langEnCursor.out as any }}>
-            <Link to="/about">
-              <span className={linkClass}>EN</span>
-            </Link>
+          <div className="flex items-center gap-4">
+            <WithCursorElement state={{ element: langInCursor.in as any }}>
+              <span className={`${linkClass} cursor-not-allowed`}>IN</span>
+            </WithCursorElement>
+            <WithCursorElement state={{ element: langEnCursor.in as any }}>
+              <span className={`${linkClass} cursor-not-allowed`}>EN</span>
+            </WithCursorElement>
+          </div>
+          <WithCursorElement interupFallback={state?.menuShow} state={{ element: menuCursor.in as any }}>
+            <Magnet>
+              <button onClick={menuClick} className={linkClass + ' cursor-pointer'}>
+                MENU
+              </button>
+            </Magnet>
           </WithCursorElement>
-        </div>
-        <WithCursorElement
-          interupFallback={state?.menuShow}
-          state={{ element: menuCursor.in as any }}
-          fallbackState={{ element: menuCursor.out as any }}
-        >
-          <Magnet>
-            <button onClick={menuClick} className={linkClass + ' cursor-pointer'}>
-              MENU
-            </button>
-          </Magnet>
-        </WithCursorElement>
+        </CursorProvider>
       </nav>
     </motion.header>
   )

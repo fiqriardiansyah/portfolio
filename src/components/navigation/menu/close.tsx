@@ -4,6 +4,8 @@ import Magnet from 'components/effect/magnet'
 import { StateContext } from 'context/state'
 import { useContext } from 'react'
 import { BLUR_HOVER_LINK } from '.'
+import CursorProvider from 'context/cursor'
+import Cursor from 'components/common/cursor'
 
 const menuCursor = {
   in: {
@@ -23,12 +25,15 @@ export default function MenuClose() {
     }
   }
   return (
-    <WithCursorElement state={{ element: menuCursor.in as any }} fallbackState={{ element: menuCursor.out }}>
-      <Magnet className={`absolute right-14 top-5 ${BLUR_HOVER_LINK}`}>
-        <button tabIndex={0} onClick={onClose}>
-          CLOSE
-        </button>
-      </Magnet>
-    </WithCursorElement>
+    <CursorProvider>
+      <Cursor />
+      <WithCursorElement state={{ element: menuCursor.in as any }} fallbackState={{ element: menuCursor.out }}>
+        <Magnet className={`absolute right-4 top-5 md:right-10 lg:right-14 ${BLUR_HOVER_LINK}`}>
+          <button tabIndex={0} onClick={onClose}>
+            CLOSE
+          </button>
+        </Magnet>
+      </WithCursorElement>
+    </CursorProvider>
   )
 }

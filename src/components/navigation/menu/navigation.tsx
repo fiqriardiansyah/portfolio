@@ -1,27 +1,19 @@
-import SlideUpText from 'components/effect/slide-up-text'
-import { StateContext } from 'context/state'
-import { useEffect, useRef, useState, useContext } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
 import Magnet from 'components/effect/magnet'
-import { AiOutlineArrowRight } from 'react-icons/ai'
+import RoundedText from 'components/effect/rounded-text'
+import { StateContext } from 'context/state'
+import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion'
 import { easeDefault, randomNum, routes } from 'lib/utils'
 import About from 'pages/about'
+import Home from 'pages/home'
+import Summary from 'pages/summary'
+import { useContext, useEffect, useRef, useState } from 'react'
+import { AiOutlineArrowRight } from 'react-icons/ai'
 import { BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi'
 import { DiReact } from 'react-icons/di'
 import { SiNextdotjs } from 'react-icons/si'
-import RoundedText from 'components/common/rounded-text'
-import Works from 'pages/works'
-import Home from 'pages/home'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { BLUR_HOVER_LINK, CONTAINER_MENU } from '.'
-
-const navigationVariants = {
-  visible: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-}
+import StaggerSlideElementMenu from './stagger-slide-element-menu'
 
 function ArrowAnimation({ hover }: { hover?: boolean }) {
   return (
@@ -46,19 +38,19 @@ function ArrowAnimation({ hover }: { hover?: boolean }) {
   )
 }
 
-function TechStamp() {
+function TechStamp({ ...props }: HTMLMotionProps<'div'>) {
   const techStackIcon = [BiLogoJavascript, BiLogoTypescript, DiReact, SiNextdotjs]
   const [random] = useState(randomNum(techStackIcon.length))
 
   const Icon = techStackIcon[random]
 
   return (
-    <motion.div className="z-30" animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ delay: 2, duration: 0.7 }}>
+    <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ delay: 2, duration: 0.7 }} {...props}>
       <RoundedText
         text="take a look!"
         className="absolute right-0 scale-150 border-2 border-solid border-yellow-400"
         textClassName="font-display !text-yellow-400 font-semibold capitalize"
-        size="60px"
+        size={60}
         space={20}
       >
         <div className="flex h-[55%] w-[55%] items-center justify-center rounded-full border-2 border-solid border-yellow-400">
@@ -69,13 +61,27 @@ function TechStamp() {
   )
 }
 
-function NavigationLink({ onClose, linkTo, text, preview }: { onClose: any; linkTo: string; text: string; preview: JSX.Element }) {
+interface NavigationLinkProps {
+  onClose: any
+  linkTo: string
+  text: string
+  preview: JSX.Element
+}
+
+function NavigationLink({ onClose, linkTo, text, preview }: NavigationLinkProps) {
   const hoverLinkEffect = ['blur', 'opacity-80']
+  const { state } = useContext(StateContext)
   const [active, setActive] = useState(false)
   const ref = useRef<HTMLAnchorElement | null>(null)
 
-  const activeHandler = () => setActive(true)
-  const inActiveHandler = () => setActive(false)
+  const activeHandler = () => {
+    if (state?.isSmallDevice) return
+    setActive(true)
+  }
+  const inActiveHandler = () => {
+    if (state?.isSmallDevice) return
+    setActive(false)
+  }
 
   useEffect(() => {
     const containerMenu = document.querySelector(`#${CONTAINER_MENU}`)
@@ -101,9 +107,9 @@ function NavigationLink({ onClose, linkTo, text, preview }: { onClose: any; link
         onMouseOver={activeHandler}
         onMouseLeave={inActiveHandler}
       >
-        <motion.div className="w-fit" initial="hidden" whileInView="visible" variants={navigationVariants} viewport={{ amount: 'all' }}>
-          <SlideUpText text={text} type="paragraph" className="font-poppins text-5xl font-light" />
-        </motion.div>
+        <StaggerSlideElementMenu className="font-poppins text-5xl font-light leading-[1] 2xl:text-8xl" tag="p" startDelay={0}>
+          {text}
+        </StaggerSlideElementMenu>
         <ArrowAnimation hover={active} />
       </Link>
       <AnimatePresence>
@@ -113,11 +119,11 @@ function NavigationLink({ onClose, linkTo, text, preview }: { onClose: any; link
             initial={{ opacity: 0, y: 50, position: 'fixed', top: 0, left: 0 }}
             exit={{ opacity: 0, y: -50, position: 'fixed', top: 0, left: 0 }}
             transition={{ duration: 0.5, ease: easeDefault }}
-            className="pointer-events-none z-10"
+            className="pointer-events-none relative z-10"
           >
-            <div className="h-screen w-screen translate-x-[10vw] scale-[0.6]">
-              <TechStamp />
-              {preview}
+            <div className="relative h-screen w-screen translate-x-[10vw] scale-[0.6]">
+              <TechStamp className="absolute right-0 top-0 z-30 scale-100" />
+              <div className="h-full w-full overflow-hidden">{preview}</div>
             </div>
           </motion.div>
         )}
@@ -159,9 +165,9 @@ export default function MenuNavigation() {
       preview: <About asPreview />
     },
     {
-      linkTo: routes.works,
-      text: 'WORKS',
-      preview: <Works asPreview />
+      linkTo: routes.summary,
+      text: 'SUMMARY',
+      preview: <Summary asPreview />
     }
   ]
 

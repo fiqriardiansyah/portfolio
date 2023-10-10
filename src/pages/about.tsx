@@ -1,33 +1,27 @@
 import withTransition, { PageProps } from 'components/common/with-transition'
-import FiqriArdiansyahFollower from 'components/cursor-follower/fiqriardiansyah'
-import { CursorContext } from 'context/cursor'
-import { StateContext } from 'context/state'
-import { useContext, useEffect } from 'react'
+import { routes } from 'lib/utils'
+import React from 'react'
+
+import SectionHead from 'module/about/sections/section-head'
+
+import SectionExperiences from 'module/about/sections/section-experiences'
+import SectionText from 'module/about/sections/section-text'
+import Footer from 'module/footer'
 
 const About = ({ asPreview }: PageProps) => {
-  const { setState: cursorSetState } = useContext(CursorContext)
-  const { state } = useContext(StateContext)
-
-  useEffect(() => {
-    if (asPreview) return
-    if (!state?.isSplashShow && cursorSetState) {
-      cursorSetState((prev) => ({
-        ...prev,
-        bgColor: 'bg-transparent',
-        element: {
-          element: <FiqriArdiansyahFollower />,
-          key: FiqriArdiansyahFollower.key,
-          type: FiqriArdiansyahFollower.type
-        }
-      }))
-    }
-  }, [state?.isSplashShow])
-
   return (
-    <div className="flex h-screen w-screen items-center justify-center overflow-hidden bg-primary">
-      <h1 className="text-white">about</h1>
+    <div className="w-screen bg-primary">
+      <SectionHead asPreview={asPreview} />
+      {!asPreview && (
+        <>
+          <SectionExperiences />
+          <SectionText />
+          <Footer linkTitle="SUMMARY" linkTo={routes.summary} title="Still curious?" />
+        </>
+      )}
     </div>
   )
 }
 
-export default withTransition(About)
+export default React.memo(About)
+export const AboutTransition = React.memo(withTransition(About))

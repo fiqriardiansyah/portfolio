@@ -1,6 +1,5 @@
 // import WithCursorElement from 'components/common/with-cursor-element'
 import Magnet from 'components/effect/magnet'
-import SlideUpText from 'components/effect/slide-up-text'
 import { motion } from 'framer-motion'
 import { easeDefault } from 'lib/utils'
 import { AiOutlineArrowRight } from 'react-icons/ai'
@@ -8,14 +7,7 @@ import { GrGithub, GrLinkedin } from 'react-icons/gr'
 import { MdEmail } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { BLUR_HOVER_LINK } from '.'
-
-const nameVariants = {
-  visible: {
-    transition: {
-      staggerChildren: 0.02
-    }
-  }
-}
+import StaggerSlideElementMenu from './stagger-slide-element-menu'
 
 export default function MenuFooter() {
   return (
@@ -25,32 +17,45 @@ export default function MenuFooter() {
         initial={{ width: 0 }}
         transition={{ delay: 0.6, ease: easeDefault, duration: 1 }}
         viewport={{ amount: 'all' }}
-        className="h-[6px] bg-primary"
+        className="h-[3px] bg-primary md:h-[6px]"
       />
-      <motion.div className="w-fit" initial="hidden" whileInView="visible" variants={nameVariants} viewport={{ amount: 'all' }}>
-        <SlideUpText text="FIQRI ARDIANSYAH" type="heading1" className="font-display text-7xl font-semibold leading-[1.2]" />
-      </motion.div>
-      <motion.div
-        viewport={{ amount: 'all' }}
-        initial={{ y: '100%', opacity: 0 }}
-        whileInView={{ y: '0', opacity: 1 }}
-        transition={{ duration: 1, ease: easeDefault }}
-        className="mt-5 flex w-fit origin-bottom items-center gap-x-10 bg-primary p-3"
+      <StaggerSlideElementMenu
+        startDelay={1}
+        className="mb-10 font-display text-3xl font-semibold leading-[1.2] md:mb-0 md:text-5xl lg:text-7xl"
+        tag="h2"
       >
-        <Link to="https://www.linkedin.com/in/fiqri-ardiansyah-a48651190/" target="_blank" className="flex items-center">
-          <GrLinkedin className="text-xl !text-white" />
-          <motion.p className="m-0 ml-2 font-spartan text-white">Linkedin</motion.p>
+        FIQRI ARDIANSYAH
+      </StaggerSlideElementMenu>
+      <div className="mb-10 flex flex-col gap-2 md:hidden">
+        <Link to="https://www.linkedin.com/in/fiqri-ardiansyah-a48651190/" target="_blank" className="flex items-end gap-2">
+          <GrLinkedin className="mt-1 text-xl text-primary" />
+          <span className="font-poppins font-light underline">Linkedin</span>
         </Link>
-        <Link to="https://github.com/fiqriardiansyah" target="_blank" className="flex items-center">
+        <Link to="https://github.com/fiqriardiansyah" target="_blank" className="flex items-end gap-2">
+          <GrGithub className="text-xl !text-primary" />
+          <span className="font-poppins font-light underline">Github</span>
+        </Link>
+        <Link to="mailto:fiqriardian92@gmail.com" className="flex items-end gap-2">
+          <MdEmail className="text-xl !text-primary" />
+          <span className="font-poppins font-light underline">fiqriardian@gmail.com</span>
+        </Link>
+      </div>
+      <StaggerSlideElementMenu
+        startDelay={1.2}
+        className="hidden w-fit origin-bottom items-baseline gap-x-10 bg-primary px-3 pb-2 pt-3 md:flex"
+        tag="div"
+      >
+        <Link to="https://www.linkedin.com/in/fiqri-ardiansyah-a48651190/" target="_blank" className="flex items-baseline">
+          <GrLinkedin className="mt-1 text-xl text-white" />
+        </Link>
+        <Link to="https://github.com/fiqriardiansyah" target="_blank" className="flex items-baseline">
           <GrGithub className="text-xl !text-white" />
-          <motion.p className="m-0 ml-2 font-spartan text-white">Github</motion.p>
         </Link>
-        <Link to="mailto:fiqriardian92@gmail.com" className="flex items-center">
+        <Link to="mailto:fiqriardian92@gmail.com" className="flex items-baseline">
           <MdEmail className="text-xl !text-white" />
-          <motion.p className="m-0 ml-2 font-spartan text-white">fiqriardian92@gmail</motion.p>
         </Link>
-      </motion.div>
-      <Magnet className="absolute bottom-0 right-0" strength={10}>
+      </StaggerSlideElementMenu>
+      <Magnet className="absolute bottom-0 right-0 hidden md:block" strength={10}>
         <motion.div
           whileInView={{ width: '100px' }}
           viewport={{ amount: 'all' }}
