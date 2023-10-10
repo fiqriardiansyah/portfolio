@@ -50,16 +50,16 @@ const heartPathMotion =
 const widthSvg = 1015
 const heightSvg = 399
 
-const responsiveHeartPathMotion = new Meanderer({
-  path: heartPathMotion,
-  width: widthSvg,
-  height: heightSvg
-})
-
 const CreativeDeveloperSection = () => {
   const [pathMotion, setPathMotion] = React.useState('')
   const { state } = React.useContext(StateContext)
   const lenis = useLenis()
+
+  const responsiveHeartPathMotion = new Meanderer({
+    path: heartPathMotion,
+    width: widthSvg,
+    height: heightSvg
+  })
 
   const clickToHello = (time: number) => {
     return () => {

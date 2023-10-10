@@ -49,15 +49,15 @@ const skullPathMotion =
 const widthSvg = 1116
 const heightSvg = 387
 
-const responsiveSkullMotion = new Meanderer({
-  path: skullPathMotion,
-  width: widthSvg,
-  height: heightSvg
-})
-
 const SpecializingFrontendSection = () => {
   const [pathMotion, setPathMotion] = React.useState('')
   const lenis = useLenis()
+
+  const responsiveSkullMotion = new Meanderer({
+    path: skullPathMotion,
+    width: widthSvg,
+    height: heightSvg
+  })
 
   const { ref, scrollYProgress } = useSpeedScrollElement({ offset: ['start start', 'end start'] })
   const tOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1])
