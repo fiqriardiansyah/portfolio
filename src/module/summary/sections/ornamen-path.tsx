@@ -17,7 +17,7 @@ const OrnamenPath = () => {
   if (state?.isSmallDevice) {
     return (
       <div className="CONTAINER flex h-screen items-center">
-        <h2 className="font-display text-7xl font-semibold capitalize text-white md:text-8xl">damn you realy want to know me</h2>
+        <h2 className="MENU-CHANGE-Y-100 font-display text-7xl font-semibold capitalize text-white md:text-8xl">damn you realy want to know me</h2>
       </div>
     )
   }
@@ -26,7 +26,7 @@ const OrnamenPath = () => {
     <div ref={ref} className="CONTAINER h-[650vh]">
       <div className="sticky left-0 top-[10%]">
         <div className="flex w-full justify-center">
-          <div className="relative lg:w-[40vw] 2xl:w-[50vw]">
+          <div className="MENU-CHANGE-SCALE-150 relative lg:w-[40vw] 2xl:w-[50vw]">
             <svg width="1123" height="3091" viewBox="0 0 1123 3091" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full">
               <motion.path
                 style={{ pathLength, opacity, strokeWidth }}
@@ -54,7 +54,7 @@ const OrnamenPath = () => {
             </svg>
           </div>
         </div>
-        <motion.h2 style={{ opacity: opacityText }} className="font-display text-9xl font-semibold capitalize text-white">
+        <motion.h2 style={{ opacity: opacityText }} className="MENU-CHANGE-Y-100 font-display text-9xl font-semibold capitalize text-white">
           damn you realy want to know me
         </motion.h2>
       </div>

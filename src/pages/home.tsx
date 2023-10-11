@@ -1,16 +1,18 @@
 import withTransition, { PageProps } from 'components/common/with-transition'
 import { routes } from 'lib/utils'
 import React from 'react'
-
-import SectionIntroduction from 'module/home/sections/section-introduction'
+import useMenuChange from 'hooks/use-menu-change'
 import Footer from 'module/footer'
 import SectionFA from 'module/home/sections/section-fa'
 import SectionFrontendDev from 'module/home/sections/section-frontend'
 import SectionInteractive from 'module/home/sections/section-interactive'
+import SectionIntroduction from 'module/home/sections/section-introduction'
 
 const Home = ({ asPreview }: PageProps) => {
+  const scopeComponentWhenMenuChange = useMenuChange({ asPreview })
+
   return (
-    <div className="z-10 bg-secondary">
+    <div ref={scopeComponentWhenMenuChange} className="z-10 bg-secondary">
       <SectionIntroduction asPreview={asPreview} />
       {!asPreview && (
         <>

@@ -97,11 +97,11 @@ const CreativeDeveloperSection = () => {
       <div onClick={clickToHello(5)} ref={ref} className="relative z-20 mt-[-100vh] h-[300vh] cursor-pointer">
         <div className="pointer-events-none sticky left-0 top-0">
           <div className="absolute left-0 top-0">
-            <div className="relative h-screen w-screen">
+            <div className="MENU-CHANGE-SCALE-125 relative h-screen w-screen">
               <motion.div
                 animate={{ y: [-10, 10] }}
                 transition={{ repeat: Infinity, duration: 2, repeatType: 'reverse', delay: 0.3 }}
-                className="absolute left-0 top-0 h-[50vh]"
+                className=" absolute left-0 top-0 h-[50vh]"
                 style={{ offsetDistance: heartLittleMotion, offsetPath: `path("${pathMotion}")`, offsetRotate: '0deg', scale: heartScale }}
               >
                 <HeartPath pathStyle={{ pathLength: heartPath, fill: heartPathColor }} />
@@ -112,10 +112,10 @@ const CreativeDeveloperSection = () => {
             </div>
           </div>
         </div>
-        <div className="sticky top-0 flex h-screen w-full items-center justify-center ">
+        <div className="MENU-CHANGE-Y-200 sticky top-0 flex h-screen w-full items-center justify-center">
           <motion.h1
             style={{ opacity: opacityText, scale: scaleText, filter: blurText }}
-            className="text-center font-spartan text-7xl font-semibold text-secondary md:text-7xl xl:text-8xl 2xl:text-9xl"
+            className=" font-spartan text-7xl font-semibold text-secondary first-line:text-center md:text-7xl xl:text-8xl 2xl:text-9xl"
           >
             Creative Developer Based In
             {state?.isSmallDevice ? (

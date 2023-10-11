@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 export default function SectionText() {
   return (
     <div className="CONTAINER flex min-h-screen flex-col items-start justify-center">
-      <p className="font-poppins text-2xl text-white">Dont Be Shy,</p>
+      <p className="MENU-CHANGE-Y-200 font-poppins text-2xl text-white">Dont Be Shy,</p>
       <WithCursorElement
         state={{
           element: {
@@ -25,7 +25,7 @@ export default function SectionText() {
           }
         }}
       >
-        <h2 className="font-display text-9xl text-white">Make The First Move.</h2>
+        <h2 className="MENU-CHANGE-Y-100 font-display text-9xl text-white">Make The First Move.</h2>
       </WithCursorElement>
     </div>
   )

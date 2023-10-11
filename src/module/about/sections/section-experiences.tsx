@@ -37,7 +37,7 @@ export default function SectionExperiences() {
           initial={{ width: 0 }}
           exit={{ opacity: 0, transition: { duration: 0.1 } }}
           transition={{ duration: 1, ease: easeDefault }}
-          className="flex h-[100px] items-center justify-center bg-yellow-300"
+          className="MENU-CHANGE-OPACITY-0 flex h-[100px] items-center justify-center bg-yellow-300"
         >
           <Magnet>
             <AiOutlineArrowDown className="text-8xl" />
@@ -45,9 +45,11 @@ export default function SectionExperiences() {
         </motion.div>
       </Magnet>
       <LetterSpacingTitle>Experiences</LetterSpacingTitle>
-      {experiences.map((exp, i) => (
-        <ExperienceRow {...exp} key={i} />
-      ))}
+      <div className="MENU-CHANGE-Y-100-STAGGER">
+        {experiences.map((exp, i) => (
+          <ExperienceRow {...exp} key={i} />
+        ))}
+      </div>
       <div className="h-[10vh] md:h-[15vh] lg:h-[30vh]"></div>
       <Magnet strength={10} className="z-[-10] mt-4 w-fit">
         <motion.div
@@ -63,9 +65,11 @@ export default function SectionExperiences() {
         </motion.div>
       </Magnet>
       <LetterSpacingTitle>Selected Projects</LetterSpacingTitle>
-      {selectedProjects.map((exp, i) => (
-        <ExperienceRow {...exp} key={i} />
-      ))}
+      <div className="MENU-CHANGE-Y-100-STAGGER">
+        {selectedProjects.map((exp, i) => (
+          <ExperienceRow {...exp} key={i} />
+        ))}
+      </div>
       <div className="h-[10vh] md:h-[15vh] lg:h-[30vh]"></div>
       <Magnet strength={10} className="z-[-10] mt-4 w-fit">
         <motion.div
@@ -81,9 +85,11 @@ export default function SectionExperiences() {
         </motion.div>
       </Magnet>
       <LetterSpacingTitle>Selected Activities</LetterSpacingTitle>
-      {actvities.map((exp, i) => (
-        <ExperienceRow {...exp} key={i} />
-      ))}
+      <div className="MENU-CHANGE-Y-100-STAGGER">
+        {actvities.map((exp, i) => (
+          <ExperienceRow {...exp} key={i} />
+        ))}
+      </div>
     </section>
   )
 }

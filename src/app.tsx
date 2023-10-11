@@ -27,10 +27,13 @@ const Page = () => {
   }
 
   useEffect(() => {
-    removeStyleContainer()
     setTimeout(() => {
       window.scrollTo(0, 0)
     }, 1000)
+  }, [location.pathname])
+
+  useEffect(() => {
+    removeStyleContainer()
   }, [state?.isSplashShow, state?.menuShow, location.pathname])
 
   if (state?.isSmallDevice === undefined) {

@@ -67,7 +67,7 @@ const SectionIntroduction = ({ asPreview }: { asPreview: any }) => {
           </svg>
         </div>
       </div>
-      <motion.div ref={scope} initial={{ opacity: 0 }} className="sticky bottom-5 flex justify-center">
+      <motion.div ref={scope} initial={{ opacity: 0 }} className="MENU-CHANGE-Y-100 sticky bottom-5 flex justify-center">
         <div className="flex items-center text-xl capitalize text-white">
           scroll
           <Lottie options={lottieOptions} height={50} width={50} isClickToPauseDisabled />

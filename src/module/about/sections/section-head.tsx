@@ -4,7 +4,7 @@ import SpeedScrollElement from 'components/effect/speed-scroll-element'
 import { StateContext } from 'context/state'
 import MarqueeStagger from 'module/about/marquee-stagger'
 import StaggerSlideElementAbout from 'module/about/stagger-slide-about'
-import SectionHeadMobile from 'module/mobile/about/section-head'
+import SectionHeadMobile, { StackedImage } from 'module/mobile/about/section-head'
 import React from 'react'
 
 const PhotoDistortion = React.lazy(() => import('../photo-distortion'))
@@ -43,17 +43,19 @@ const Default = ({ asPreview }: PageProps) => {
           <ParallaxMarquee baseVelocity={-3}>ABOUT ME - </ParallaxMarquee>
         </MarqueeStagger>
       </div>
-      <div className="CONTAINER mt-20 min-h-[150vh] ">
+      <div className="CONTAINER mt-20 min-h-[150vh]">
         <SpeedScrollElement speed={-300} options={{ offset: ['start center', 'end start'] }}>
-          <div className="flex min-h-[60vh] justify-center">
-            {!asPreview && (
+          <div className="MENU-CHANGE-Y-100 flex min-h-[60vh] justify-center">
+            {asPreview ? (
+              <StackedImage />
+            ) : (
               <React.Suspense>
                 <PhotoDistortion />
               </React.Suspense>
             )}
           </div>
-          <SpeedScrollElement speed={-500} className="pointer-events-none z-[90]">
-            <StaggerSlideElementAbout className=" pointer-events-none font-display text-[10rem] font-semibold leading-[1] text-white">
+          <SpeedScrollElement speed={-500} className=" pointer-events-none z-[90]">
+            <StaggerSlideElementAbout className=" MENU-CHANGE-Y-200 pointer-events-none font-display text-[10rem] font-semibold leading-[1] text-white">
               FIQRI ARDIANSYAH
             </StaggerSlideElementAbout>
           </SpeedScrollElement>

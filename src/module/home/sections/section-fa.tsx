@@ -24,7 +24,7 @@ export default function SectionFA() {
 
   return (
     <section id="section-fa" ref={ref} className="pointer-events-none relative z-20 h-[200vh] w-screen">
-      <div className="sticky left-0 top-0 flex h-screen w-screen flex-col justify-between overflow-hidden">
+      <div className="MENU-CHANGE-SCALE-125 sticky left-0 top-0 flex h-screen w-screen flex-col justify-between overflow-hidden">
         <motion.div style={{ height: '50vh', y: yTopCurtain }} className="relative flex w-screen justify-center overflow-hidden bg-primary">
           <FA className="absolute w-[70%] -translate-y-1/2 xl:w-[50%] 2xl:w-[40%]" style={{ top: topFA }} />
         </motion.div>

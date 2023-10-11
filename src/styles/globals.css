@@ -56,6 +56,25 @@
     @apply text-primary;
     filter: invert(100%);
   }
+
+  .MENU-CHANGE-Y-100 {
+  }
+  .MENU-CHANGE-Y-200 {
+  }
+  .MENU-CHANGE-SCALE-150 {
+  }
+  .MENU-CHANGE-SCALE-125 {
+  }
+  .MENU-CHANGE-SCALE-80 {
+  }
+  .MENU-CHANGE-OPACITY-0 {
+  }
+  .MENU-CHANGE-Y-100-STAGGER {
+  }
+  .MENU-CHANGE-Y-200-STAGGER {
+  }
+  .CHILD-STAGGER {
+  }
 }
 
 @keyframes rotateText {

@@ -90,7 +90,7 @@ const Default = () => {
       <div className="container relative mx-auto w-full">
         <div className="relative h-[30vh]">
           <div className="absolute bottom-0">
-            <Magnet strength={10} className="z-[-10] mt-4 w-fit">
+            <Magnet strength={10} className="MENU-CHANGE-Y-200 z-[-10] mt-4 w-fit">
               <motion.div
                 animate={{ width: '100px' }}
                 initial={{ width: 0 }}
@@ -106,20 +106,20 @@ const Default = () => {
           </div>
         </div>
         <div className="h-[100vh]">
-          <h2 className="sticky top-[10%] font-poppins text-8xl font-medium text-primary">Welcome To My Interactive Portfolio</h2>
+          <h2 className="MENU-CHANGE-Y-100 sticky top-[10%] font-poppins text-8xl font-medium text-primary">Welcome To My Interactive Portfolio</h2>
         </div>
-        <div ref={refHand} className="flex w-full justify-end">
+        <div ref={refHand} className="MENU-CHANGE-SCALE-125 flex w-full justify-end">
           <motion.div style={{ y: scrollSpeedHand }}>
             <HandRock />
           </motion.div>
         </div>
-        <motion.p style={{ y: scrollSpeedDesc }} className="CONTAINER pointer-events-none mt-20 text-4xl text-gray-500">
+        <motion.p style={{ y: scrollSpeedDesc }} className="CONTAINER MENU-CHANGE-Y-100 pointer-events-none mt-20 text-4xl text-gray-500">
           Greetings, I&apos;m <span className="font-semibold text-primary">Fiqri Ardiansyah</span>, a seasoned{' '}
           <span className="font-semibold text-primary">Frontend Developer</span> with over 2 years of experience. I specialize in crafting web
           experiences that aren&apos;t just static pages but dynamic journeys. Explore my world of interactive web development.
         </motion.p>
         <AnimatePresence>
-          <Magnet strength={10} className="z-[-10] mt-4 w-fit">
+          <Magnet strength={10} className="MENU-CHANGE-Y-200 z-[-10] mt-4 w-fit">
             <motion.div
               animate={{ width: '100px' }}
               initial={{ width: 0 }}
@@ -134,13 +134,13 @@ const Default = () => {
           </Magnet>
         </AnimatePresence>
         <div className="h-[50vh]">
-          <h2 className="sticky top-[10%] mb-[10%] font-poppins text-8xl font-medium text-primary">Selected Expertise</h2>
+          <h2 className="MENU-CHANGE-Y-100 sticky top-[10%] mb-[10%] font-poppins text-8xl font-medium text-primary">Selected Expertise</h2>
         </div>
         <div ref={refExpertise} className="relative flex h-[300vh] w-full justify-center">
           <div className="w-fit">
             <motion.div className="absolute left-0 top-0 flex h-screen w-full flex-col gap-y-2">
               <ParallaxMarquee baseVelocity={-3} speed={2000}>
-                <div className="mb-4 flex items-center overflow-visible font-poppins text-9xl text-yellow-400">
+                <div className="MENU-CHANGE-Y-200 mb-4 flex items-center overflow-visible font-poppins text-9xl text-yellow-400">
                   <span>FRONTEND IS LIKE ART</span>
                   <Magnet strength={10}>
                     <div className="group mx-7 flex h-[100px] w-[100px] items-center justify-center rounded-full border border-solid border-yellow-400 hover:bg-yellow-400">
@@ -152,7 +152,7 @@ const Default = () => {
                 </div>
               </ParallaxMarquee>
               <ParallaxMarquee baseVelocity={1}>
-                <div className="mb-4 flex items-center overflow-visible font-poppins text-9xl text-yellow-400">
+                <div className="MENU-CHANGE-Y-100 mb-4 flex items-center overflow-visible font-poppins text-9xl text-yellow-400">
                   <span>EVERY THING IS CANVAS</span>
                   <Magnet strength={10}>
                     <div className="group mx-7 flex h-[100px] w-[100px] items-center justify-center rounded-full border border-solid border-yellow-400 hover:bg-yellow-400">
@@ -189,7 +189,7 @@ const Default = () => {
       </div>
       <div className="relative z-10 h-[200vh] w-full bg-secondary">
         <div className="container mx-auto pt-[5%]">
-          <Magnet strength={10} className="z-[-10] mt-4 w-fit">
+          <Magnet strength={10} className="MENU-CHANGE-Y-200 z-[-10] mt-4 w-fit">
             <motion.div
               animate={{ width: '100px' }}
               initial={{ width: 0 }}
@@ -203,12 +203,12 @@ const Default = () => {
             </motion.div>
           </Magnet>
           <div className="h-[50vh]">
-            <h2 className="sticky top-[10%] mb-[10%] font-poppins text-8xl font-medium text-primary">Let&apos;s Collaborate</h2>
+            <h2 className="MENU-CHANGE-Y-100 sticky top-[10%] mb-[10%] font-poppins text-8xl font-medium text-primary">Let&apos;s Collaborate</h2>
           </div>
-          <div className="flex w-full justify-center">
+          <div className="MENU-CHANGE-SCALE-80 flex w-full justify-center">
             <HandPeace />
           </div>
-          <motion.p className="CONTAINER pointer-events-none mt-20 text-4xl text-gray-500">
+          <motion.p className="CONTAINER MENU-CHANGE-Y-100 pointer-events-none mt-20 text-4xl text-gray-500">
             I'm not just a <span className="font-semibold text-primary">developer</span>. I'm a problem solver, a creative thinker, and a partner in
             your digital journey. Let's bring your <span className="font-semibold text-primary">ideas to life</span> and create experiences that
             resonate with your audience. Ready to embark on this journey together? Reach out, and let's make the web a more exciting place, one

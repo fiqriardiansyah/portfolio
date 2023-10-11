@@ -5,7 +5,7 @@ export default function SectionIntroductionMobile() {
     <div className="CONTAINER">
       <div className="flex h-screen w-full flex-col items-center justify-center">
         <StaggerSlideElementHome
-          className="text-center font-display text-6xl leading-[1.3] text-secondary md:text-8xl xl:text-9xl 2xl:text-[10rem]"
+          className="MENU-CHANGE-Y-200 text-center font-display text-6xl leading-[1.3] text-secondary md:text-8xl xl:text-9xl 2xl:text-[10rem]"
           perLetter={false}
           tag="h1"
         >
@@ -14,7 +14,7 @@ export default function SectionIntroductionMobile() {
       </div>
       <div className="flex h-screen w-full flex-col items-center justify-center">
         <StaggerSlideElementHome
-          className="text-center font-display text-6xl leading-[1.3] text-secondary md:text-8xl xl:text-9xl 2xl:text-[10rem]"
+          className="MENU-CHANGE-Y-200 text-center  font-display text-6xl leading-[1.3] text-secondary md:text-8xl xl:text-9xl 2xl:text-[10rem]"
           perLetter={false}
           tag="h1"
         >
@@ -23,7 +23,7 @@ export default function SectionIntroductionMobile() {
       </div>
       <div className="flex h-screen w-full flex-col items-center justify-center">
         <StaggerSlideElementHome
-          className="text-center font-display text-6xl leading-[1.3] text-secondary md:text-8xl xl:text-9xl 2xl:text-[10rem]"
+          className="MENU-CHANGE-Y-200 text-center  font-display text-6xl leading-[1.3] text-secondary md:text-8xl xl:text-9xl 2xl:text-[10rem]"
           perLetter={false}
           tag="h1"
         >

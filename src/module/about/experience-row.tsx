@@ -95,7 +95,7 @@ const ExperienceRow = ({ text1, text2, text3, color, image }: ExperienceRowProps
         onHoverEnd={onHoverInactive}
         onFocus={onHoverActive}
         onBlur={onHoverInactive}
-        className="flex w-full cursor-not-allowed items-center py-5 transition-opacity duration-200 hover:opacity-30 active:opacity-30 lg:p-20"
+        className="CHILD-STAGGER flex w-full cursor-not-allowed items-center py-5 transition-opacity duration-200 hover:opacity-30 active:opacity-30 lg:p-20"
         style={{ borderTop: '1px solid white', opacity: hover ? 0.3 : 1 }}
       >
         <div className="relative">

@@ -7,10 +7,13 @@ import React from 'react'
 import Footer from 'module/footer'
 import Experiences from 'module/summary/sections/experiences'
 import OrnamenPath from 'module/summary/sections/ornamen-path'
+import useMenuChange from 'hooks/use-menu-change'
 
 const Summary = ({ asPreview }: PageProps) => {
+  const scopeComponentWhenMenuChange = useMenuChange({ asPreview })
+
   return (
-    <div className="w-screen bg-primary">
+    <div ref={scopeComponentWhenMenuChange} className="w-screen bg-primary">
       <div className="h-[10vh]"></div>
       <Description />
       {!asPreview && (

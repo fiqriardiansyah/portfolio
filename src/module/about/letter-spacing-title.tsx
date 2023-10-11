@@ -19,7 +19,7 @@ const LetterSpacingTitle = ({ children }: { children: any }) => {
   })
 
   return (
-    <div ref={mergeRefs(ref, scope)} className="h-[20vh] md:h-[30vh] lg:h-[50vh]">
+    <div ref={mergeRefs(ref, scope)} className="MENU-CHANGE-Y-100 h-[20vh] md:h-[30vh] lg:h-[50vh]">
       <motion.h2
         className={`sticky ${
           state?.isSmallDevice ? 'top-[5%]' : 'top-[10%]'

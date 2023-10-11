@@ -1,7 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
+import Cursor from 'components/common/cursor'
 import WithCursorElement from 'components/common/with-cursor-element'
 import Magnet from 'components/effect/magnet'
 import StaggerSlideElementMenu from 'components/navigation/menu/stagger-slide-element-menu'
+import CursorProvider from 'context/cursor'
 import { StateContext } from 'context/state'
 import { motion, useAnimate, useInView, useTransform } from 'framer-motion'
 import useSpeedScrollElement from 'hooks/use-speed-scroll-element'
@@ -12,8 +14,6 @@ import { HiOutlineArrowRight } from 'react-icons/hi'
 import { MdEmail } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import NextLinkAnimate from './next-link-animate'
-import CursorProvider from 'context/cursor'
-import Cursor from 'components/common/cursor'
 
 const linkCursor = {
   element: (
@@ -95,18 +95,24 @@ export default function Footer({ title, linkTitle, linkTo, colorMode }: FooterPr
   return (
     <CursorProvider>
       <Cursor />
-      <motion.footer ref={ref} style={{ backgroundColor: bgColor }} className="h-[110vh] pt-[10vh]">
+      <motion.footer
+        ref={ref}
+        style={{ backgroundColor: bgColor }}
+        className={`${!state?.isSmallDevice ? 'MENU-CHANGE-SCALE-125' : ''} h-[110vh] w-screen overflow-hidden pt-[10vh]`}
+      >
         <motion.div style={{ scale, borderRadius, backgroundColor: colorMode === 'light' ? light : dark }} layout>
-          <div className="CONTAINER flex min-h-screen flex-col justify-between py-5 md:py-10">
+          <div
+            className={`CONTAINER ${!state?.isSmallDevice ? 'MENU-CHANGE-SCALE-125' : ''} flex min-h-screen flex-col justify-between py-5 md:py-10`}
+          >
             <div className=""></div>
             <div className="flex w-full flex-col items-center justify-center gap-10 md:flex-row">
               <p
                 style={{ color: colorMode !== 'light' ? light : dark }}
-                className={`font-poppins text-5xl font-semibold capitalize md:text-6xl lg:text-8xl`}
+                className={`MENU-CHANGE-Y-100 font-poppins text-5xl font-semibold capitalize md:text-6xl lg:text-8xl`}
               >
                 {title}
               </p>
-              <Magnet>
+              <Magnet className="MENU-CHANGE-SCALE-80 MENU-CHANGE-OPACITY-0">
                 <Link to={linkTo} aria-label={linkTitle} tabIndex={0}>
                   <WithCursorElement
                     state={{ element: linkCursor as any }}

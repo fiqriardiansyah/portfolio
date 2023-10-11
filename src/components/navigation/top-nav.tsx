@@ -76,22 +76,33 @@ const TopNav = () => {
       <nav className="flex w-full items-center justify-between px-4 py-6 md:px-14">
         <CursorProvider>
           <Cursor />
-          <WithCursorElement state={{ element: nameCursor.in as any }}>
+          <WithCursorElement fallbackState={{ element: null }} state={{ element: nameCursor.in as any }}>
             <Link to="/">
               <Magnet>
                 <span className={linkClass}>FA - 23 ©️</span>
               </Magnet>
             </Link>
           </WithCursorElement>
-          <div className=" hidden items-center gap-4 lg:flex">
-            <WithCursorElement state={{ element: langInCursor.in as any }}>
+        </CursorProvider>
+
+        <div className=" hidden items-center gap-4 lg:flex">
+          <CursorProvider>
+            <Cursor />
+            <WithCursorElement fallbackState={{ element: null }} state={{ element: langInCursor.in as any }}>
               <span className={`${linkClass} cursor-not-allowed`}>IN</span>
             </WithCursorElement>
-            <WithCursorElement state={{ element: langEnCursor.in as any }}>
+          </CursorProvider>
+          <CursorProvider>
+            <Cursor />
+            <WithCursorElement fallbackState={{ element: null }} state={{ element: langEnCursor.in as any }}>
               <span className={`${linkClass} cursor-not-allowed`}>EN</span>
             </WithCursorElement>
-          </div>
-          <WithCursorElement interupFallback={state?.menuShow} state={{ element: menuCursor.in as any }}>
+          </CursorProvider>
+        </div>
+
+        <CursorProvider>
+          <Cursor />
+          <WithCursorElement interupFallback={state?.menuShow} fallbackState={{ element: null }} state={{ element: menuCursor.in as any }}>
             <Magnet>
               <button onClick={menuClick} className={linkClass + ' cursor-pointer'}>
                 MENU

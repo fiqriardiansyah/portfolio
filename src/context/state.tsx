@@ -1,6 +1,6 @@
+import { AnimationScope } from 'framer-motion'
 import useDebounce from 'hooks/use-debounce'
-import useFirstRender from 'hooks/use-is-first-render'
-import { Dispatch, SetStateAction, createContext, useMemo, useState, useEffect, useRef } from 'react'
+import { Dispatch, SetStateAction, createContext, useEffect, useMemo, useRef, useState } from 'react'
 
 export const breakPoints = {
   sm: 640,
@@ -24,6 +24,7 @@ export interface ContextType {
   setState?: Dispatch<SetStateAction<StateType>>
   defaultLenisOptions?: any
   isFirstRender?: boolean
+  scopeComponentWhenMenuChange?: AnimationScope<any>
 }
 
 function easeInOutCubicScroll(x: number): number {
@@ -33,6 +34,18 @@ function easeInOutCubicScroll(x: number): number {
 export const StateContext = createContext<ContextType>({})
 
 const defaultLenisOptions = { easing: easeInOutCubicScroll, wheelMultiplier: 1.3, smoothWheel: true, lerp: 0.1 }
+
+const getBP = () => {
+  const currWidth = window.outerWidth
+  const bp = Object.values(breakPoints).filter((el) => typeof el === 'number')
+  const getWidth = bp.find((el) => Number(el) >= currWidth) || breakPoints['2xl']
+  const breakP = Object.keys(breakPoints).find((key) => breakPoints[key as keyof typeof breakPoints] === getWidth)
+  return {
+    width: getWidth,
+    breakPoint: breakP as keyof typeof breakPoints
+  }
+}
+
 const StateProvider = ({ children }: any) => {
   const mobileBreakPoint = breakPoints.md
 
@@ -42,22 +55,9 @@ const StateProvider = ({ children }: any) => {
     lenisOptions: defaultLenisOptions
   })
 
-  const isFirstRender = useFirstRender()
-
   const handleReload = useDebounce(() => {
     window.location.reload()
   }, 1000)
-
-  const getBP = () => {
-    const currWidth = window.outerWidth
-    const bp = Object.values(breakPoints).filter((el) => typeof el === 'number')
-    const getWidth = bp.find((el) => Number(el) >= currWidth) || breakPoints['2xl']
-    const breakP = Object.keys(breakPoints).find((key) => breakPoints[key as keyof typeof breakPoints] === getWidth)
-    return {
-      width: getWidth,
-      breakPoint: breakP as keyof typeof breakPoints
-    }
-  }
 
   useEffect(() => {
     if (state?.isSplashShow) return
@@ -93,7 +93,7 @@ const StateProvider = ({ children }: any) => {
     }
   }, [])
 
-  const value = useMemo(() => ({ state, setState, defaultLenisOptions, isFirstRender }), [state])
+  const value = useMemo(() => ({ state, setState, defaultLenisOptions }), [state])
 
   return <StateContext.Provider value={value}>{children}</StateContext.Provider>
 }

@@ -48,7 +48,7 @@ export default function SectionFrontendDev() {
   return (
     <section className="z-[-1] min-h-[100vh] w-full bg-secondary pt-10">
       <div className="CONTAINER flex h-screen items-center ">
-        <p className="font-spartan text-6xl font-light xl:text-8xl 2xl:text-8xl 2xl:leading-loose">
+        <p className="MENU-CHANGE-Y-200 font-spartan text-6xl font-light xl:text-8xl 2xl:text-8xl 2xl:leading-loose">
           <WithCursorElement state={{ element: functionalityCursor as any }}>Functionality</WithCursorElement> +{' '}
           <WithCursorElement state={{ element: aetheticsCursor as any }}>Aesthetics</WithCursorElement> =
           <WithCursorElement state={{ element: satisfiedCursor as any }}>Satisfaction</WithCursorElement>

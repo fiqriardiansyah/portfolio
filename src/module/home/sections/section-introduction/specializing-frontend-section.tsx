@@ -96,7 +96,7 @@ const SpecializingFrontendSection = () => {
       <div onClick={clickToHello(2)} ref={ref} className="z-10 mt-[-100vh] h-[300vh] cursor-pointer">
         <div className="pointer-events-none sticky left-0 top-0">
           <div className="absolute left-0 top-0">
-            <div className="relative flex h-screen w-screen items-center justify-center ">
+            <div className="MENU-CHANGE-SCALE-125 relative flex h-screen w-screen items-center justify-center">
               <motion.div
                 animate={{ y: [-10, 10] }}
                 transition={{ repeat: Infinity, duration: 2, repeatType: 'reverse', delay: 0.3 }}
@@ -111,7 +111,7 @@ const SpecializingFrontendSection = () => {
             </div>
           </div>
         </div>
-        <div className="sticky top-0 flex h-screen w-full items-center justify-center ">
+        <div className="MENU-CHANGE-Y-200 sticky top-0 flex h-screen w-full items-center justify-center">
           <motion.h1
             style={{ opacity: tOpacity, scale: tScale, filter: blurThird }}
             className="text-center font-spartan text-6xl font-semibold text-secondary xl:text-8xl 2xl:text-9xl"

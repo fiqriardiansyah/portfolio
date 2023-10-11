@@ -7,10 +7,13 @@ import SectionHead from 'module/about/sections/section-head'
 import SectionExperiences from 'module/about/sections/section-experiences'
 import SectionText from 'module/about/sections/section-text'
 import Footer from 'module/footer'
+import useMenuChange from 'hooks/use-menu-change'
 
 const About = ({ asPreview }: PageProps) => {
+  const scopeComponentWhenMenuChange = useMenuChange({ asPreview })
+
   return (
-    <div className="w-screen bg-primary">
+    <div ref={scopeComponentWhenMenuChange} className="w-screen bg-primary">
       <SectionHead asPreview={asPreview} />
       {!asPreview && (
         <>

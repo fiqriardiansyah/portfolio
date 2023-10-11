@@ -7,8 +7,8 @@ import WithCursorElement from 'components/common/with-cursor-element'
 
 const Experiences = () => {
   return (
-    <div className="CONTAINER relative mt-[10vh] grid grid-cols-1 gap-16 lg:grid-cols-2">
-      <div id="education">
+    <div className="CONTAINER MENU-CHANGE-Y-100-STAGGER relative mt-[10vh] grid grid-cols-1 gap-16 lg:grid-cols-2">
+      <div className="CHILD-STAGGER" id="education">
         <TitleSummaries text="Education" observeId="education" />
         <ul className="list-disc marker:text-white">
           <Experience
@@ -19,14 +19,14 @@ const Experiences = () => {
           />
         </ul>
       </div>
-      <div id="experiences">
+      <div className="CHILD-STAGGER" id="experiences">
         <TitleSummaries text="Experiences" observeId="experiences" />
         <ul className="list-disc marker:text-white">
           <Experience notAllowed title="Creloka" sentences={['Frontend Developer', 'Mar 2022 - Present']} link="/" />
           <Experience notAllowed title="Panggilin" sentences={['Frontend Developer', 'Jun 2021 - Mar 2022']} link="/" className="mt-5" />
         </ul>
       </div>
-      <div id="selected-project">
+      <div className="CHILD-STAGGER" id="selected-project">
         <TitleSummaries text="Selected Projects" observeId="selected-project" />
         <ul className="list-disc marker:text-white">
           <Experience notAllowed title="JRG Bus" sentences={['Frontend Developer', 'Okt 2022 - Apr 2023', 'Contract']} link="/" />
@@ -39,7 +39,7 @@ const Experiences = () => {
           />
         </ul>
       </div>
-      <div id="selected-activities">
+      <div className="CHILD-STAGGER" id="selected-activities">
         <TitleSummaries text="Selected Activities" observeId="selected-activities" />
         <ul className="list-disc marker:text-white">
           <Experience notAllowed title="Dicoding Elite" sentences={['Code Reviewer', 'Okt 2023 - Present']} link="/" />
@@ -47,7 +47,7 @@ const Experiences = () => {
           <Experience notAllowed title="ID Camp" sentences={['Facilitator', '2021']} link="/" className="mt-5" />
         </ul>
       </div>
-      <div id="selected-certificate">
+      <div className="CHILD-STAGGER" id="selected-certificate">
         <TitleSummaries text="Selected Certificate" observeId="selected-certificate" />
         <ul className="list-disc marker:text-white">
           <Experience
@@ -63,7 +63,7 @@ const Experiences = () => {
           />
         </ul>
       </div>
-      <div id="tech">
+      <div className="CHILD-STAGGER" id="tech">
         <TitleSummaries text="Tech" observeId="tech" />
         <p className="font-poppins text-base text-secondary lg:text-2xl">
           ReactJs . NextJs . PWA . Javascript . Typescript . NodeJs . Redux . Recoil . Webpack . Vite . SASS . Ant Design . Bootstrap . MaterialUI .
@@ -91,7 +91,7 @@ const Experiences = () => {
           </WithCursorElement>
         </p>
       </div>
-      <div id="contact">
+      <div className="CHILD-STAGGER" id="contact">
         <TitleSummaries text="Contact" observeId="contact" />
         <ul className="list-disc marker:text-white">
           <Experience title="Email" sentences={['fiqriardian92@gmail.com']} link="mailto:fiqriardian92@gmail.com" />
