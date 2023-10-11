@@ -21,7 +21,7 @@ const Description = () => {
           <br />
           Let's make something beautiful with code! 🎉🎉🎉
         </p>
-        <a href={`/fiqriardiansyah_cv.pdf`} target="_blank" download title="download cv" className="mt-10 w-fit" rel="noreferrer">
+        <a href="/fiqriardiansyah_cv.pdf" target="_blank" download title="download cv" className="mt-10 w-fit" rel="noreferrer">
           <motion.div
             onHoverStart={() => setHover(true)}
             onHoverEnd={() => setHover(false)}

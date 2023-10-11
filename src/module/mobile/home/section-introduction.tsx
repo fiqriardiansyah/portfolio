@@ -9,7 +9,7 @@ export default function SectionIntroductionMobile() {
           perLetter={false}
           tag="h1"
         >
-          Let Me Introduce Me Self As Developer
+          Let Me Introduce My Self As Developer
         </StaggerSlideElementHome>
       </div>
       <div className="flex h-screen w-full flex-col items-center justify-center">

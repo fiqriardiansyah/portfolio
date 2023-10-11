@@ -39,7 +39,7 @@ const LetMeIntroduceSection = ({ asPreview }: { asPreview: any }) => {
             className="text-center font-display text-6xl text-secondary md:text-8xl xl:text-8xl 2xl:text-[10rem]"
             perLetter={false}
           >
-            Me self
+            My self
             <div className="hidden h-[150px] w-[150px] overflow-hidden md:block">
               <motion.img className="h-full w-full object-cover" whileHover={{ scale: 1.3 }} transition={{ duration: 0.5 }} src={WatchImg} />
             </div>
