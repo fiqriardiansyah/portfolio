@@ -1,4 +1,5 @@
 import App from 'app'
+import { Analytics } from '@vercel/analytics/react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './styles/globals.css'
@@ -8,6 +9,7 @@ const root = createRoot(container)
 
 root.render(
   <BrowserRouter>
+    <Analytics />
     <Routes>
       <Route path="/*" element={<App />} />
     </Routes>

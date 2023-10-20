@@ -25,6 +25,7 @@
     "@johh/three-effectcomposer": "^0.1.0",
     "@motionone/utils": "^10.15.1",
     "@studio-freight/react-lenis": "^0.0.26",
+    "@vercel/analytics": "^1.1.1",
     "animejs": "^3.2.1",
     "clsx": "^2.0.0",
     "d3-scale": "^4.0.2",
