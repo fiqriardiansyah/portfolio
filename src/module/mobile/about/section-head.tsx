@@ -9,7 +9,7 @@ export const StackedImage = () => {
       initial={{ height: '0.1px', y: '200px', opacity: 0 }}
       animate={{ height: '100%', y: 0, opacity: 1 }}
       transition={{ ease: easeDefault, duration: 1, delay: 2, opacity: { duration: 0.01 } }}
-      className="MENU-CHANGE-Y-100 relative flex items-center justify-center overflow-hidden"
+      className="relative flex items-center justify-center overflow-hidden"
     >
       <motion.img src="/me.jpg" alt="fiqri ardiansyah" className="w-[80%] object-cover" />
       <motion.img src="/me.jpg" alt="fiqri ardiansyah" className="absolute w-[70%] object-cover" />
