@@ -89,6 +89,17 @@ const paragraph = [
   </div>
 ]
 
+const fetchAllImagesFromTxt = async () => {
+  try {
+    const fetchFile = await fetch('../../../all-images.txt')
+    const txt = await fetchFile.text()
+    const pathImages = txt.split('\n').filter((img) => img)
+    return pathImages
+  } catch (e) {
+    alert(e)
+  }
+}
+
 export default function Introduction() {
   const { setState } = useContext(StateContext)
   const { setState: setStateCursor } = useContext(CursorContext)
@@ -99,6 +110,17 @@ export default function Introduction() {
 
   const count = useMotionValue(0)
   const rounded = useTransform(count, (value) => Math.round(value))
+
+  const fetchAllImages = async () => {
+    const images = (await fetchAllImagesFromTxt())?.map((img) => {
+      const pathimg = '/src/assets/images/' + img
+      return fetch(pathimg)
+    })
+
+    await Promise.all(images || []).then(() => {
+      console.log('success get images')
+    })
+  }
 
   const startPercentAnimate = () => {
     percentAnimate = animate(count, percentCount, {
@@ -127,6 +149,7 @@ export default function Introduction() {
         }
       },
       async onComplete() {
+        await fetchAllImages()
         if (setState) setState((prev) => ({ ...prev, isSplashShow: false }))
         if (setStateCursor)
           setStateCursor((prev) => ({
@@ -138,6 +161,8 @@ export default function Introduction() {
   }
 
   useEffect(() => {
+    fetchAllImages()
+
     setTimeout(() => {
       startPercentAnimate()
     }, waitingToStart)

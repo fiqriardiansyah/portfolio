@@ -13,8 +13,9 @@
     "email": "joaopaulomoraes@outlook.com"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "write-all-images": "node read-images.js",
+    "dev": "npm run write-all-images && vite",
+    "build": "npm run write-all-images && tsc && vite build",
     "serve": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
