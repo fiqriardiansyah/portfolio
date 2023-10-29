@@ -95,8 +95,8 @@ const fetchAllImagesFromTxt = async () => {
     const txt = await fetchFile.text()
     const pathImages = txt.split('\n').filter((img) => img)
     return pathImages
-  } catch (e) {
-    alert(e)
+  } catch (e: any) {
+    console.error(e?.message)
   }
 }
 

@@ -31,7 +31,7 @@ const getAllImages = async () => {
 
   Promise.all(allImages).then((images) => {
     const mergeImages = images.flat(Infinity)
-    const stream = fs.createWriteStream('all-images.txt')
+    const stream = fs.createWriteStream('public/all-images.txt')
     stream.once('open', () => {
       mergeImages.forEach((img) => {
         stream.write(img + '\n')
