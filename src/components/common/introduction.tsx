@@ -91,7 +91,7 @@ const paragraph = [
 
 const fetchAllImagesFromTxt = async () => {
   try {
-    const fetchFile = await fetch('../../../all-images.txt')
+    const fetchFile = await fetch('/all-images.txt')
     const txt = await fetchFile.text()
     const pathImages = txt.split('\n').filter((img) => img)
     return pathImages
