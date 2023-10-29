@@ -113,7 +113,7 @@ export default function Introduction() {
 
   const fetchAllImages = async () => {
     const images = (await fetchAllImagesFromTxt())?.map((img) => {
-      const pathimg = '/src/assets/images/' + img
+      const pathimg = '/assets/' + img
       return fetch(pathimg)
     })
 
@@ -149,7 +149,9 @@ export default function Introduction() {
         }
       },
       async onComplete() {
-        await fetchAllImages()
+        if (import.meta.env.PROD) {
+          await fetchAllImages()
+        }
         if (setState) setState((prev) => ({ ...prev, isSplashShow: false }))
         if (setStateCursor)
           setStateCursor((prev) => ({
@@ -161,7 +163,9 @@ export default function Introduction() {
   }
 
   useEffect(() => {
-    fetchAllImages()
+    if (import.meta.env.PROD) {
+      fetchAllImages()
+    }
 
     setTimeout(() => {
       startPercentAnimate()
