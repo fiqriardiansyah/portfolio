@@ -35,12 +35,33 @@ const translations = {
   home_lets_collaborate: { en: "Let's Collaborate", id: 'Ayo Berkolaborasi' },
   keep_learning: { en: 'Keep Learning', id: 'Terus Belajar' },
 
+  home_stat_years: { en: 'Years Experience', id: 'Tahun Pengalaman' },
+  home_stat_projects: { en: 'Projects Delivered', id: 'Proyek Terkirim' },
+  home_stat_users: { en: 'Concurrent Users Served', id: 'Pengguna Bersamaan Dilayani' },
+  home_stat_mentored: { en: 'Students Mentored', id: 'Siswa Dibimbing' },
+
+  home_selected_work: { en: 'Selected Work', id: 'Karya Pilihan' },
+  home_selected_work_lead: {
+    en: 'A few products I designed, built, and shipped end-to-end.',
+    id: 'Beberapa produk yang saya rancang, bangun, dan luncurkan dari awal sampai akhir.'
+  },
+  home_selected_work_more: { en: '13+ other projects completed', id: '13+ proyek lain telah selesai' },
+
+  home_tech_stack_title: { en: 'Tech I Work With', id: 'Teknologi Yang Saya Pakai' },
+
+  home_contact_say_hi: { en: 'Say Hi', id: 'Sapa Saya' },
+  home_contact_lets_talk: { en: "Let's Talk", id: 'Ayo Bicara' },
+
   about_me_marquee: { en: 'ABOUT ME - ', id: 'TENTANG SAYA - ' },
   about_dont_be_shy: { en: 'Dont Be Shy,', id: 'Jangan Malu-Malu,' },
   about_make_first_move: { en: 'Make The First Move.', id: 'Buat Langkah Pertama.' },
   about_experiences: { en: 'Experiences', id: 'Pengalaman' },
   about_selected_projects: { en: 'Selected Projects', id: 'Proyek Pilihan' },
   about_selected_activities: { en: 'Selected Activities', id: 'Aktivitas Pilihan' },
+  about_story_title: { en: 'How I Work', id: 'Cara Saya Bekerja' },
+
+  summary_status_available: { en: 'Open to full-time & freelance work', id: 'Terbuka untuk kerja full-time & freelance' },
+  summary_languages: { en: 'English (Fluent) . Indonesian (Native)', id: 'Inggris (Fasih) . Indonesia (Native)' },
 
   summary_title: { en: 'Summary', id: 'Ringkasan' },
   summary_role_line: {

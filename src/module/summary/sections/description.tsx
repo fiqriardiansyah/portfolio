@@ -1,5 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
+import CountUp from 'components/effect/count-up'
 import { motion } from 'framer-motion'
+import { stats } from 'lib/stats'
 import { useTranslation } from 'lib/translations'
 import StaggerElementFooter from 'module/footer/stagger-element'
 import React from 'react'
@@ -13,7 +15,14 @@ const Description = () => {
       <h1 className="MENU-CHANGE-SCALE-125 font-display text-6xl font-semibold text-secondary underline lg:text-8xl">{t('summary_title')}</h1>
       <div className="h-[20vh]"></div>
       <div className="flex flex-col">
-        <h2 className=" MENU-CHANGE-Y-100 font-poppins text-6xl font-semibold text-white lg:text-9xl">Fiqri ardiansyah</h2>
+        <div className="MENU-CHANGE-Y-100 flex w-fit items-center gap-2 rounded-full border border-solid border-white/30 px-4 py-1.5">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400"></span>
+          </span>
+          <span className="font-poppins text-sm text-white">{t('summary_status_available')}</span>
+        </div>
+        <h2 className=" MENU-CHANGE-Y-100 mt-4 font-poppins text-6xl font-semibold text-white lg:text-9xl">Fiqri ardiansyah</h2>
         <p className="MENU-CHANGE-Y-100 mt-4 font-poppins text-2xl text-secondary lg:text-3xl">{t('summary_role_line')}</p>
         <p className="MENU-CHANGE-Y-200 mt-10 text-justify font-poppins text-lg text-secondary lg:text-left lg:text-xl">
           {lang === 'id' ? (
@@ -42,6 +51,17 @@ const Description = () => {
             </>
           )}
         </p>
+        <p className="MENU-CHANGE-Y-200 mt-6 font-poppins text-base text-secondary opacity-70 lg:text-lg">🌐 {t('summary_languages')}</p>
+        <div className="MENU-CHANGE-Y-200 mt-10 grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-y-0">
+          {stats.map((stat) => (
+            <div key={stat.labelKey} className="flex flex-col">
+              <p className="font-poppins text-3xl font-semibold text-white lg:text-4xl">
+                <CountUp target={stat.target} suffix={stat.suffix} />
+              </p>
+              <p className="mt-1 font-poppins text-sm text-secondary opacity-70">{t(stat.labelKey)}</p>
+            </div>
+          ))}
+        </div>
         <a
           href="/fiqri_ardiansyah_cv.pdf"
           target="_blank"

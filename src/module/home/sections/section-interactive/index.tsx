@@ -14,6 +14,8 @@ import MeIllustrateTop from 'module/home/sections/section-interactive/me-illustr
 import SectionInteractiveMobile from 'module/mobile/home/section-interactive'
 import { memo, useContext, useEffect, useRef, useState, lazy, Suspense } from 'react'
 import { AiOutlineArrowDown, AiOutlineArrowRight } from 'react-icons/ai'
+import { GrGithub, GrLinkedin } from 'react-icons/gr'
+import { MdEmail } from 'react-icons/md'
 import HandPeace from './hand-peace'
 
 const ExpertiseSnake = lazy(() => import('./expertise-snake'))
@@ -242,6 +244,39 @@ const Default = () => {
               </>
             )}
           </motion.p>
+          <div className="CONTAINER MENU-CHANGE-Y-100 mt-14 flex items-center gap-6">
+            <Magnet strength={20}>
+              <a
+                href="mailto:fiqriardian92@gmail.com"
+                aria-label="Email"
+                className="group flex h-[70px] w-[70px] items-center justify-center rounded-full border border-solid border-primary text-primary transition-colors hover:bg-yellow-400"
+              >
+                <MdEmail className="text-2xl" />
+              </a>
+            </Magnet>
+            <Magnet strength={20}>
+              <a
+                href="https://www.linkedin.com/in/fiqri-ardiansyah"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Linkedin"
+                className="group flex h-[70px] w-[70px] items-center justify-center rounded-full border border-solid border-primary text-primary transition-colors hover:bg-yellow-400"
+              >
+                <GrLinkedin className="text-2xl" />
+              </a>
+            </Magnet>
+            <Magnet strength={20}>
+              <a
+                href="https://github.com/fiqriardiansyah"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Github"
+                className="group flex h-[70px] w-[70px] items-center justify-center rounded-full border border-solid border-primary text-primary transition-colors hover:bg-yellow-400"
+              >
+                <GrGithub className="text-2xl" />
+              </a>
+            </Magnet>
+          </div>
         </div>
       </div>
     </motion.section>

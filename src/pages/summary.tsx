@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import FloatingContact from 'components/common/floating-contact'
 import withTransition, { PageProps } from 'components/common/with-transition'
 import { routes } from 'lib/utils'
 import { useTranslation } from 'lib/translations'
@@ -23,6 +24,7 @@ const Summary = ({ asPreview }: PageProps) => {
           <Experiences />
           <OrnamenPath />
           <Footer linkTitle={t('nav_home')} linkTo={routes.index} title={t('footer_title_summary')} />
+          <FloatingContact />
         </>
       )}
     </div>

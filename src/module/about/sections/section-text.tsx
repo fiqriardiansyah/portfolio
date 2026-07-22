@@ -27,7 +27,9 @@ export default function SectionText() {
           }
         }}
       >
-        <h2 className="MENU-CHANGE-Y-100 font-display text-9xl text-white">{t('about_make_first_move')}</h2>
+        <a href="mailto:fiqriardian92@gmail.com" aria-label="Email me">
+          <h2 className="MENU-CHANGE-Y-100 font-display text-9xl text-white">{t('about_make_first_move')}</h2>
+        </a>
       </WithCursorElement>
     </div>
   )

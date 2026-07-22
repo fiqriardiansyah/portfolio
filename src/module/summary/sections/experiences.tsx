@@ -4,73 +4,81 @@ import PattrickImg from 'assets/images/pattrick.gif'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'lib/translations'
 import Experience from '../experience'
+import TimelineExperience from '../timeline-experience'
 import WithCursorElement from 'components/common/with-cursor-element'
 
 const Experiences = () => {
   const { t } = useTranslation()
   return (
-    <div className="CONTAINER MENU-CHANGE-Y-100-STAGGER relative mt-[10vh] grid grid-cols-1 gap-16 lg:grid-cols-2">
-      <div className="CHILD-STAGGER" id="education">
-        <TitleSummaries text={t('summary_education')} observeId="education" />
-        <ul className="list-disc marker:text-white">
-          <Experience
-            notAllowed
-            title={t('summary_degree')}
-            sentences={['Universitas Mikroskil', 'Medan, Indonesia', '2019 - 2023', 'GPA 3.69/4.00']}
-            link="/"
-          />
-        </ul>
-      </div>
-      <div className="CHILD-STAGGER" id="experiences">
+    <div className="CONTAINER MENU-CHANGE-Y-100-STAGGER relative mt-[10vh]">
+      <div className="CHILD-STAGGER mb-24" id="experiences">
         <TitleSummaries text={t('summary_experiences')} observeId="experiences" />
-        <ul className="list-disc marker:text-white">
-          <Experience title="INCIT" sentences={['Fullstack Engineer', 'Dec 2024 - Present']} link="https://incit.org/" />
-          <Experience notAllowed title="Crealoka" sentences={['Senior Frontend Developer', 'Mar 2022 - Dec 2024']} link="/" className="mt-5" />
-          <Experience notAllowed title="Panggilin" sentences={['Frontend Developer', 'Jun 2021 - Mar 2022']} link="/" className="mt-5" />
-        </ul>
+        <TimelineExperience />
       </div>
-      <div className="CHILD-STAGGER" id="selected-project">
-        <TitleSummaries text={t('summary_selected_projects')} observeId="selected-project" />
-        <ul className="list-disc marker:text-white">
-          <Experience notAllowed title="JRG Bus" sentences={['Fullstack Developer', 'Okt 2022 - Apr 2023', 'Contract']} link="/" />
-          <Experience
-            notAllowed
-            title="Monapro - Telkom Indonesia"
-            sentences={['Frontend Developer', 'Nov 2022 - Mar 2023', 'Contract']}
-            link="/"
-            className="mt-5"
-          />
-        </ul>
+
+      <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+        <div className="CHILD-STAGGER" id="selected-project">
+          <TitleSummaries text={t('summary_selected_projects')} observeId="selected-project" />
+          <ul className="list-disc marker:text-white">
+            <Experience title="Kasigo" sentences={['Full-Stack Developer / Builder', '2025 - Present']} link="https://kasigo.id" />
+            <Experience
+              title="HOPESY"
+              sentences={['Full-Stack / Frontend Developer', '2025 - Present']}
+              link="https://hopesy.co.id"
+              className="mt-5"
+            />
+            <Experience notAllowed title="JRG Bus" sentences={['Fullstack Developer', 'Okt 2022 - Apr 2023', 'Contract']} link="/" className="mt-5" />
+            <Experience
+              notAllowed
+              title="Monapro - Telkom Indonesia"
+              sentences={['Frontend Developer', 'Nov 2022 - Mar 2023', 'Contract']}
+              link="/"
+              className="mt-5"
+            />
+          </ul>
+        </div>
+        <div className="CHILD-STAGGER" id="education">
+          <TitleSummaries text={t('summary_education')} observeId="education" />
+          <ul className="list-disc marker:text-white">
+            <Experience
+              notAllowed
+              title={t('summary_degree')}
+              sentences={['Universitas Mikroskil', 'Medan, Indonesia', '2019 - 2023', 'GPA 3.69/4.00']}
+              link="/"
+            />
+          </ul>
+        </div>
+        <div className="CHILD-STAGGER" id="selected-activities">
+          <TitleSummaries text={t('summary_selected_activities')} observeId="selected-activities" />
+          <ul className="list-disc marker:text-white">
+            <Experience notAllowed title="Dicoding Elite" sentences={['Code Reviewer', 'Okt 2023 - Present']} link="/" />
+            <Experience notAllowed title="BDD Event" sentences={['Facilitator', '2021/2023']} link="/" className="mt-5" />
+            <Experience notAllowed title="ID Camp" sentences={['Facilitator', '2021']} link="/" className="mt-5" />
+          </ul>
+        </div>
+        <div className="CHILD-STAGGER" id="selected-certificate">
+          <TitleSummaries text={t('summary_selected_certificate')} observeId="selected-certificate" />
+          <ul className="list-disc marker:text-white">
+            <Experience
+              title="React Developer Expert"
+              sentences={['Dicoding Indonesia', '2023 - 2026']}
+              link="https://www.dicoding.com/certificates/72ZD9MRQ9PYW"
+            />
+            <Experience
+              title="Frontend Developer Expert"
+              sentences={['Dicoding Indonesia', '2022 - 2025']}
+              link="https://www.dicoding.com/certificates/2VX3YNL0JPYQ"
+              className="mt-5"
+            />
+          </ul>
+        </div>
       </div>
-      <div className="CHILD-STAGGER" id="selected-activities">
-        <TitleSummaries text={t('summary_selected_activities')} observeId="selected-activities" />
-        <ul className="list-disc marker:text-white">
-          <Experience notAllowed title="Dicoding Elite" sentences={['Code Reviewer', 'Okt 2023 - Present']} link="/" />
-          <Experience notAllowed title="BDD Event" sentences={['Facilitator', '2021/2023']} link="/" className="mt-5" />
-          <Experience notAllowed title="ID Camp" sentences={['Facilitator', '2021']} link="/" className="mt-5" />
-        </ul>
-      </div>
-      <div className="CHILD-STAGGER" id="selected-certificate">
-        <TitleSummaries text={t('summary_selected_certificate')} observeId="selected-certificate" />
-        <ul className="list-disc marker:text-white">
-          <Experience
-            title="React Developer Expert"
-            sentences={['Dicoding Indonesia', '2023 - 2026']}
-            link="https://www.dicoding.com/certificates/72ZD9MRQ9PYW"
-          />
-          <Experience
-            title="Frontend Developer Expert"
-            sentences={['Dicoding Indonesia', '2022 - 2025']}
-            link="https://www.dicoding.com/certificates/2VX3YNL0JPYQ"
-            className="mt-5"
-          />
-        </ul>
-      </div>
-      <div className="CHILD-STAGGER" id="tech">
+
+      <div className="CHILD-STAGGER mt-24" id="tech">
         <TitleSummaries text={t('summary_tech')} observeId="tech" />
         <p className="font-poppins text-base text-secondary lg:text-2xl">
           ReactJS . NextJS . React Native . NestJS . Express . Node.js . Go (Fiber) . GraphQL . gRPC . REST API . WebSocket . TypeScript . JavaScript
-          . TailwindCSS . PostgreSQL . MySQL . MongoDB . Redis . Docker . Kubernetes . AWS . CI/CD . Microservices . PWA
+          . TailwindCSS . PostgreSQL . MySQL . MongoDB . Redis . Docker . AWS . CI/CD . Microservices . PWA
           <WithCursorElement
             state={{
               element: {
@@ -94,7 +102,7 @@ const Experiences = () => {
           </WithCursorElement>
         </p>
       </div>
-      <div className="CHILD-STAGGER" id="contact">
+      <div className="CHILD-STAGGER mt-24" id="contact">
         <TitleSummaries text={t('summary_contact')} observeId="contact" />
         <ul className="list-disc marker:text-white">
           <Experience title="Email" sentences={['fiqriardian92@gmail.com']} link="mailto:fiqriardian92@gmail.com" />

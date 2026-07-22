@@ -1,3 +1,4 @@
+import Magnet from 'components/effect/magnet'
 import { StateContext } from 'context/state'
 import { motion, useTransform } from 'framer-motion'
 import useSpeedScrollElement from 'hooks/use-speed-scroll-element'
@@ -7,6 +8,8 @@ import HandPeace from 'module/home/sections/section-interactive/hand-peace'
 import HandRock from 'module/home/sections/section-interactive/hand-rock'
 import React from 'react'
 import { AiOutlineArrowDown } from 'react-icons/ai'
+import { GrGithub, GrLinkedin } from 'react-icons/gr'
+import { MdEmail } from 'react-icons/md'
 
 export default function SectionInteractiveMobile() {
   const { state } = React.useContext(StateContext)
@@ -101,6 +104,39 @@ export default function SectionInteractiveMobile() {
             </>
           )}
         </p>
+        <div className="MENU-CHANGE-Y-100 mt-10 flex items-center gap-4">
+          <Magnet strength={20}>
+            <a
+              href="mailto:fiqriardian92@gmail.com"
+              aria-label="Email"
+              className="flex h-[55px] w-[55px] items-center justify-center rounded-full border border-solid border-primary text-primary"
+            >
+              <MdEmail className="text-xl" />
+            </a>
+          </Magnet>
+          <Magnet strength={20}>
+            <a
+              href="https://www.linkedin.com/in/fiqri-ardiansyah"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Linkedin"
+              className="flex h-[55px] w-[55px] items-center justify-center rounded-full border border-solid border-primary text-primary"
+            >
+              <GrLinkedin className="text-xl" />
+            </a>
+          </Magnet>
+          <Magnet strength={20}>
+            <a
+              href="https://github.com/fiqriardiansyah"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Github"
+              className="flex h-[55px] w-[55px] items-center justify-center rounded-full border border-solid border-primary text-primary"
+            >
+              <GrGithub className="text-xl" />
+            </a>
+          </Magnet>
+        </div>
       </div>
     </section>
   )
