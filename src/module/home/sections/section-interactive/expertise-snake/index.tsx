@@ -8,6 +8,8 @@ import TypecriptSnake from './typescript'
 import PWASnake from './pwa'
 import ReduxSnake from './redux'
 import FirebaseSnake from './firebase'
+import GoSnake from './go'
+import NodeSnake from './node'
 import KeepLearningSnake from './keep-learning'
 import React from 'react'
 
@@ -27,6 +29,8 @@ export default function ExpertiseSnake({ scrollY }: { scrollY: MotionValue<numbe
       <PWASnake offsetDistance={offsetDistance} pathLength={pathLength} opacity={opacity} />
       <ReduxSnake offsetDistance={offsetDistance} pathLength={pathLength} opacity={opacity} />
       <FirebaseSnake offsetDistance={offsetDistance} pathLength={pathLength} opacity={opacity} />
+      <GoSnake offsetDistance={offsetDistance} pathLength={pathLength} opacity={opacity} />
+      <NodeSnake offsetDistance={offsetDistance} pathLength={pathLength} opacity={opacity} />
       <KeepLearningSnake offsetDistance={offsetDistance} pathLength={pathLength} opacity={opacity} />
     </>
   )

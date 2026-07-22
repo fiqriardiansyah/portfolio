@@ -14,7 +14,7 @@ const Experiences = () => {
           <Experience
             notAllowed
             title="Informatics Engineering (Bachelor)"
-            sentences={['Universitas Mikroskil', 'Medan , Indonesia', '3.69/4.00']}
+            sentences={['Universitas Mikroskil', 'Medan, Indonesia', '2019 - 2023', 'GPA 3.69/4.00']}
             link="/"
           />
         </ul>
@@ -22,8 +22,8 @@ const Experiences = () => {
       <div className="CHILD-STAGGER" id="experiences">
         <TitleSummaries text="Experiences" observeId="experiences" />
         <ul className="list-disc marker:text-white">
-          <Experience title="INCIT" sentences={['Fullstack Developer', 'Dec 2024 - Present']} link="https://incit.org/" />
-          <Experience notAllowed title="Creloka" sentences={['Fullstack Developer', 'Mar 2022 - Nov 2024']} link="/" />
+          <Experience title="INCIT" sentences={['Fullstack Engineer', 'Dec 2024 - Present']} link="https://incit.org/" />
+          <Experience notAllowed title="Crealoka" sentences={['Senior Frontend Developer', 'Mar 2022 - Dec 2024']} link="/" className="mt-5" />
           <Experience notAllowed title="Panggilin" sentences={['Frontend Developer', 'Jun 2021 - Mar 2022']} link="/" className="mt-5" />
         </ul>
       </div>
@@ -67,7 +67,8 @@ const Experiences = () => {
       <div className="CHILD-STAGGER" id="tech">
         <TitleSummaries text="Tech" observeId="tech" />
         <p className="font-poppins text-base text-secondary lg:text-2xl">
-          ReactJS . NextJS . NestJS . NodeJS . GO . Fiber . Microservices . Microfrontend . Typescript . Javascript . AWS . PostgreSQL
+          ReactJS . NextJS . React Native . NestJS . Express . Node.js . Go (Fiber) . GraphQL . gRPC . REST API . WebSocket . TypeScript . JavaScript
+          . TailwindCSS . PostgreSQL . MySQL . MongoDB . Redis . Docker . Kubernetes . AWS . CI/CD . Microservices . PWA
           <WithCursorElement
             state={{
               element: {
@@ -95,7 +96,10 @@ const Experiences = () => {
         <TitleSummaries text="Contact" observeId="contact" />
         <ul className="list-disc marker:text-white">
           <Experience title="Email" sentences={['fiqriardian92@gmail.com']} link="mailto:fiqriardian92@gmail.com" />
+          <Experience title="Phone" sentences={['+62 852-7358-0367']} link="tel:+6285273580367" className="mt-5" />
           <Experience title="Linkedin" sentences={['Fiqri Ardiansyah']} link="https://www.linkedin.com/in/fiqri-ardiansyah" className="mt-5" />
+          <Experience title="Github" sentences={['@fiqriardiansyah']} link="https://github.com/fiqriardiansyah" className="mt-5" />
+          <Experience title="Website" sentences={['fiqriardiansyah.dev']} link="https://fiqriardiansyah.dev" className="mt-5" />
         </ul>
       </div>
     </div>

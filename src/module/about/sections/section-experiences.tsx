@@ -18,12 +18,12 @@ export default function SectionExperiences() {
     {
       text1: 'INCIT',
       text2: '2024 - Present',
-      text3: 'Fullstack Developer',
+      text3: 'Fullstack Engineer',
       color: 'rgba(158,107,184,0.996078)',
       image: IncitImg,
       link: 'https://incit.org'
     },
-    { text1: 'Crealoka', text2: '2022 - 2024', text3: 'Fullstack Developer', color: '#0091F8', image: CrealokaImg },
+    { text1: 'Crealoka', text2: '2022 - 2024', text3: 'Senior Frontend Developer', color: '#0091F8', image: CrealokaImg },
     { text1: 'Panggilin', text2: '2021 - 2022', text3: 'Frontend Developer', color: '#F1592A', image: PanggilinImg }
   ]
 

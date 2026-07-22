@@ -168,7 +168,7 @@ export default function Footer({ title, linkTitle, linkTo, colorMode }: FooterPr
                 <Link to="mailto:fiqriardian92@gmail.com" className="flex items-end gap-2">
                   <MdEmail className="text-xl " style={{ color: colorMode !== 'light' ? light : dark }} />
                   <span style={{ color: colorMode !== 'light' ? light : dark }} className="font-poppins font-light underline">
-                    fiqriardian@gmail.com
+                    fiqriardian92@gmail.com
                   </span>
                 </Link>
               </div>

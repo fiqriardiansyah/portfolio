@@ -13,13 +13,15 @@ const Description = () => {
       <div className="flex flex-col">
         <h2 className=" MENU-CHANGE-Y-100 font-poppins text-6xl font-semibold text-white lg:text-9xl">Fiqri ardiansyah</h2>
         <p className="MENU-CHANGE-Y-100 mt-4 font-poppins text-2xl text-secondary lg:text-3xl">
-          - Fullstack Developer At INCIT | External Dicoding Code Reviewer -
+          - Full-Stack Developer At INCIT (Singapore) | Code Reviewer At Dicoding Indonesia -
         </p>
         <p className="MENU-CHANGE-Y-200 mt-10 text-justify font-poppins text-lg text-secondary lg:text-left lg:text-xl">
-          <span className="font-semibold text-white">Hi there!</span> 👋 Welcome to my profile. Nice to meet you! My name is Fiqri, I am a Full-Stack
-          Developer with 4+ years of experience building enterprise-grade web applications using React, Next.js, NestJS, and Go. Currently at{' '}
-          <span className="text-yellow-300">International Centre for Industrial Transformation</span> (INCIT), delivering scalable systems with
-          real-time data capabilities and microservices architecture.
+          <span className="font-semibold text-white">Hi there!</span> 👋 Welcome to my profile. Nice to meet you! My name is Fiqri, a Full-Stack
+          Developer with 5 years of experience delivering scalable web applications across domestic and international environments, including
+          enterprise platforms, e-commerce systems, and ERP solutions. Currently at{' '}
+          <span className="text-yellow-300">International Centre for Industrial Transformation</span> (INCIT), architecting a unified analytics
+          platform across 5+ enterprise products with React, Next.js, Node.js, and Go. Also active as a technical educator, having mentored and
+          reviewed 1000+ students across national developer programs.
           <br />
           <br />
           Let's make something beautiful with code! 🎉🎉🎉
