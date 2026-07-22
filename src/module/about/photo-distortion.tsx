@@ -15,40 +15,57 @@ const PhotoDistortion = () => {
   const image3Instance = React.useRef<any>()
 
   React.useEffect(() => {
-    const image1 = new hoverEffect({
-      parent: imageContainerRef.current,
-      intensity: 0.3,
-      speedIn: 2,
-      easing: Power4,
-      speedOut: 1.6,
-      image1: '/me.jpg',
-      image2: '/tatti.webp',
-      displacementImage: '/noise-transparent.png',
-      imagesRatio: 1.4
-    })
-    const image2 = new hoverEffect({
-      parent: imageContainerRef2.current,
-      intensity: 0.3,
-      speedIn: 1.8,
-      easing: Power4,
-      speedOut: 1.4,
-      image1: '/me.jpg',
-      image2: '/tatti.webp',
-      displacementImage: '/noise-transparent.png',
-      imagesRatio: 1.4
-    })
-    const image3 = new hoverEffect({
-      parent: imageContainerRef3.current,
-      intensity: 0.3,
-      image1: '/me.jpg',
-      image2: '/tatti.webp',
-      displacementImage: '/noise-transparent.png',
-      imagesRatio: 1.4
+    // Each hoverEffect() spins up its own WebGL context + shader compile + texture decode.
+    // Creating all 3 synchronously in one tick blocks the main thread on first render.
+    // Spreading them across separate frames lets the browser paint in between.
+    let raf1 = 0
+    let raf2 = 0
+    let raf3 = 0
+
+    raf1 = requestAnimationFrame(() => {
+      image1Instance.current = new hoverEffect({
+        parent: imageContainerRef.current,
+        intensity: 0.3,
+        speedIn: 2,
+        easing: Power4,
+        speedOut: 1.6,
+        image1: '/me.jpg',
+        image2: '/tatti.webp',
+        displacementImage: '/noise-transparent.png',
+        imagesRatio: 1.4
+      })
+
+      raf2 = requestAnimationFrame(() => {
+        image2Instance.current = new hoverEffect({
+          parent: imageContainerRef2.current,
+          intensity: 0.3,
+          speedIn: 1.8,
+          easing: Power4,
+          speedOut: 1.4,
+          image1: '/me.jpg',
+          image2: '/tatti.webp',
+          displacementImage: '/noise-transparent.png',
+          imagesRatio: 1.4
+        })
+
+        raf3 = requestAnimationFrame(() => {
+          image3Instance.current = new hoverEffect({
+            parent: imageContainerRef3.current,
+            intensity: 0.3,
+            image1: '/me.jpg',
+            image2: '/tatti.webp',
+            displacementImage: '/noise-transparent.png',
+            imagesRatio: 1.4
+          })
+        })
+      })
     })
 
-    image1Instance.current = image1
-    image2Instance.current = image2
-    image3Instance.current = image3
+    return () => {
+      cancelAnimationFrame(raf1)
+      cancelAnimationFrame(raf2)
+      cancelAnimationFrame(raf3)
+    }
   }, [])
 
   const onHoverStart = () => {
