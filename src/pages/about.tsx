@@ -1,5 +1,6 @@
 import withTransition, { PageProps } from 'components/common/with-transition'
 import { routes } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import React from 'react'
 
 import SectionHead from 'module/about/sections/section-head'
@@ -11,6 +12,7 @@ import useMenuChange from 'hooks/use-menu-change'
 
 const About = ({ asPreview }: PageProps) => {
   const scopeComponentWhenMenuChange = useMenuChange({ asPreview })
+  const { t } = useTranslation()
 
   return (
     <div ref={scopeComponentWhenMenuChange} className="w-screen bg-primary">
@@ -19,7 +21,7 @@ const About = ({ asPreview }: PageProps) => {
         <>
           <SectionExperiences />
           <SectionText />
-          <Footer linkTitle="SUMMARY" linkTo={routes.summary} title="Still curious?" />
+          <Footer linkTitle={t('nav_summary')} linkTo={routes.summary} title={t('footer_title_about')} />
         </>
       )}
     </div>

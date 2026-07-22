@@ -2,25 +2,27 @@ import React from 'react'
 import TitleSummaries from '../title-summaries'
 import PattrickImg from 'assets/images/pattrick.gif'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'lib/translations'
 import Experience from '../experience'
 import WithCursorElement from 'components/common/with-cursor-element'
 
 const Experiences = () => {
+  const { t } = useTranslation()
   return (
     <div className="CONTAINER MENU-CHANGE-Y-100-STAGGER relative mt-[10vh] grid grid-cols-1 gap-16 lg:grid-cols-2">
       <div className="CHILD-STAGGER" id="education">
-        <TitleSummaries text="Education" observeId="education" />
+        <TitleSummaries text={t('summary_education')} observeId="education" />
         <ul className="list-disc marker:text-white">
           <Experience
             notAllowed
-            title="Informatics Engineering (Bachelor)"
+            title={t('summary_degree')}
             sentences={['Universitas Mikroskil', 'Medan, Indonesia', '2019 - 2023', 'GPA 3.69/4.00']}
             link="/"
           />
         </ul>
       </div>
       <div className="CHILD-STAGGER" id="experiences">
-        <TitleSummaries text="Experiences" observeId="experiences" />
+        <TitleSummaries text={t('summary_experiences')} observeId="experiences" />
         <ul className="list-disc marker:text-white">
           <Experience title="INCIT" sentences={['Fullstack Engineer', 'Dec 2024 - Present']} link="https://incit.org/" />
           <Experience notAllowed title="Crealoka" sentences={['Senior Frontend Developer', 'Mar 2022 - Dec 2024']} link="/" className="mt-5" />
@@ -28,7 +30,7 @@ const Experiences = () => {
         </ul>
       </div>
       <div className="CHILD-STAGGER" id="selected-project">
-        <TitleSummaries text="Selected Projects" observeId="selected-project" />
+        <TitleSummaries text={t('summary_selected_projects')} observeId="selected-project" />
         <ul className="list-disc marker:text-white">
           <Experience notAllowed title="JRG Bus" sentences={['Fullstack Developer', 'Okt 2022 - Apr 2023', 'Contract']} link="/" />
           <Experience
@@ -41,7 +43,7 @@ const Experiences = () => {
         </ul>
       </div>
       <div className="CHILD-STAGGER" id="selected-activities">
-        <TitleSummaries text="Selected Activities" observeId="selected-activities" />
+        <TitleSummaries text={t('summary_selected_activities')} observeId="selected-activities" />
         <ul className="list-disc marker:text-white">
           <Experience notAllowed title="Dicoding Elite" sentences={['Code Reviewer', 'Okt 2023 - Present']} link="/" />
           <Experience notAllowed title="BDD Event" sentences={['Facilitator', '2021/2023']} link="/" className="mt-5" />
@@ -49,7 +51,7 @@ const Experiences = () => {
         </ul>
       </div>
       <div className="CHILD-STAGGER" id="selected-certificate">
-        <TitleSummaries text="Selected Certificate" observeId="selected-certificate" />
+        <TitleSummaries text={t('summary_selected_certificate')} observeId="selected-certificate" />
         <ul className="list-disc marker:text-white">
           <Experience
             title="React Developer Expert"
@@ -65,7 +67,7 @@ const Experiences = () => {
         </ul>
       </div>
       <div className="CHILD-STAGGER" id="tech">
-        <TitleSummaries text="Tech" observeId="tech" />
+        <TitleSummaries text={t('summary_tech')} observeId="tech" />
         <p className="font-poppins text-base text-secondary lg:text-2xl">
           ReactJS . NextJS . React Native . NestJS . Express . Node.js . Go (Fiber) . GraphQL . gRPC . REST API . WebSocket . TypeScript . JavaScript
           . TailwindCSS . PostgreSQL . MySQL . MongoDB . Redis . Docker . Kubernetes . AWS . CI/CD . Microservices . PWA
@@ -88,12 +90,12 @@ const Experiences = () => {
               }
             }}
           >
-            <span className="ml-2 text-yellow-100">And Keep Learning...</span>
+            <span className="ml-2 text-yellow-100">{t('summary_keep_learning')}</span>
           </WithCursorElement>
         </p>
       </div>
       <div className="CHILD-STAGGER" id="contact">
-        <TitleSummaries text="Contact" observeId="contact" />
+        <TitleSummaries text={t('summary_contact')} observeId="contact" />
         <ul className="list-disc marker:text-white">
           <Experience title="Email" sentences={['fiqriardian92@gmail.com']} link="mailto:fiqriardian92@gmail.com" />
           <Experience title="Phone" sentences={['+62 852-7358-0367']} link="tel:+6285273580367" className="mt-5" />

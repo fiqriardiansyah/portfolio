@@ -8,11 +8,12 @@ import { StateContext } from 'context/state'
 import { motion, useAnimate, useInView, useTransform } from 'framer-motion'
 import useSpeedScrollElement from 'hooks/use-speed-scroll-element'
 import { easeDefault } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import React, { useEffect } from 'react'
 import { GrGithub, GrLinkedin } from 'react-icons/gr'
 import { HiOutlineArrowRight } from 'react-icons/hi'
 import { MdEmail } from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import NextLinkAnimate from './next-link-animate'
 
 const linkCursor = {
@@ -37,6 +38,8 @@ const light = '#EAE5DF'
 
 export default function Footer({ title, linkTitle, linkTo, colorMode }: FooterProps) {
   const { state } = React.useContext(StateContext)
+  const { t } = useTranslation()
+  const location = useLocation()
   const [isHover, setIsHover] = React.useState(false)
   const hoverRef = React.useRef<HTMLDivElement>(null)
   const elementHoverRef = React.useRef<HTMLDivElement>(null)
@@ -113,7 +116,7 @@ export default function Footer({ title, linkTitle, linkTo, colorMode }: FooterPr
                 {title}
               </p>
               <Magnet className="MENU-CHANGE-SCALE-80 MENU-CHANGE-OPACITY-0">
-                <Link to={linkTo} aria-label={linkTitle} tabIndex={0}>
+                <Link to={{ pathname: linkTo, search: location.search }} aria-label={linkTitle} tabIndex={0}>
                   <WithCursorElement
                     state={{ element: linkCursor as any }}
                     fallbackState={{ element: { element: null, type: 'hover', key: new Date().getTime() } }}
@@ -192,7 +195,7 @@ export default function Footer({ title, linkTitle, linkTo, colorMode }: FooterPr
                 ©️{new Date().getFullYear()}
               </span>
               <span className="font-poppins " style={{ color: colorMode !== 'light' ? light : dark }}>
-                Made with ❤️ by fiqri ardiansyah
+                {t('footer_made_with')}
               </span>
             </div>
           </div>

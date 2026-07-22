@@ -2,6 +2,7 @@ import { StateContext } from 'context/state'
 import { motion, useTransform } from 'framer-motion'
 import useSpeedScrollElement from 'hooks/use-speed-scroll-element'
 import { easeDefault } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import HandPeace from 'module/home/sections/section-interactive/hand-peace'
 import HandRock from 'module/home/sections/section-interactive/hand-rock'
 import React from 'react'
@@ -9,6 +10,7 @@ import { AiOutlineArrowDown } from 'react-icons/ai'
 
 export default function SectionInteractiveMobile() {
   const { state } = React.useContext(StateContext)
+  const { t, lang } = useTranslation()
 
   const { ref: refHand, scrollYProgress: scrollYHand } = useSpeedScrollElement({ offset: ['start end', 'end start'] })
   const scrollSpeedHand = useTransform(scrollYHand, [0, 1], [0, -400])
@@ -28,7 +30,7 @@ export default function SectionInteractiveMobile() {
         </motion.div>
         <div className="h-[50vh]">
           <h2 className="MENU-CHANGE-Y-100 sticky top-[5%] font-poppins text-4xl font-medium text-primary md:text-6xl ">
-            Welcome To My Interactive Portfolio
+            {t('home_welcome_interactive')}
           </h2>
         </div>
         <div ref={refHand} className="flex w-full justify-end ">
@@ -37,9 +39,20 @@ export default function SectionInteractiveMobile() {
           </motion.div>
         </div>
         <motion.p style={{ y: scrollSpeedDesc }} className="CONTAINER pointer-events-none mt-20 text-justify text-2xl text-gray-700 ">
-          Greetings, I&apos;m <span className="font-semibold text-primary">Fiqri Ardiansyah</span>, a seasoned{' '}
-          <span className="font-semibold text-primary">Fullstack Developer</span> with over 5 years of experience. I specialize in crafting web
-          experiences that aren&apos;t just static pages but dynamic journeys. Explore my world of interactive web development.
+          {lang === 'id' ? (
+            <>
+              Halo, saya <span className="font-semibold text-primary">Fiqri Ardiansyah</span>, seorang{' '}
+              <span className="font-semibold text-primary">Fullstack Developer</span> berpengalaman lebih dari 5 tahun. Saya mengkhususkan diri
+              membangun pengalaman web yang tidak sekadar halaman statis, tapi perjalanan yang dinamis. Jelajahi dunia pengembangan web interaktif
+              saya.
+            </>
+          ) : (
+            <>
+              Greetings, I&apos;m <span className="font-semibold text-primary">Fiqri Ardiansyah</span>, a seasoned{' '}
+              <span className="font-semibold text-primary">Fullstack Developer</span> with over 5 years of experience. I specialize in crafting web
+              experiences that aren&apos;t just static pages but dynamic journeys. Explore my world of interactive web development.
+            </>
+          )}
         </motion.p>
         {/* <motion.div
           animate={{ width: state?.breakpoint === 'sm' ? '50px' : '100px' }}
@@ -67,15 +80,26 @@ export default function SectionInteractiveMobile() {
         </motion.div>
         <div className="h-[50vh]">
           <h2 className="MENU-CHANGE-Y-100 sticky top-[5%] mb-[10%] font-poppins text-4xl font-medium text-primary md:text-6xl ">
-            Let&apos;s Collaborate
+            {t('home_lets_collaborate')}
           </h2>
         </div>
         <HandPeace className=" scale-50 opacity-50" />
         <p className="CONTAINER MENU-CHANGE-Y-100 pointer-events-none mt-20 text-justify text-2xl text-gray-700 ">
-          I&apos;m not just a <span className="font-semibold text-primary">developer</span>. I&apos;m a problem solver, a creative thinker, and a
-          partner in your digital journey. Let&apos;s bring your <span className="font-semibold text-primary">ideas to life</span> and create
-          experiences that resonate with your audience. Ready to embark on this journey together? Reach out, and let&apos;s make the web a more
-          exciting place, one interactive project at a time.
+          {lang === 'id' ? (
+            <>
+              Saya bukan sekadar <span className="font-semibold text-primary">developer</span>. Saya seorang pemecah masalah, pemikir kreatif, dan
+              partner dalam perjalanan digital Anda. Mari wujudkan <span className="font-semibold text-primary">ide-ide Anda</span> dan ciptakan
+              pengalaman yang berkesan bagi audiens Anda. Siap memulai perjalanan ini bersama? Hubungi saya, dan mari kita jadikan web tempat yang
+              lebih menarik, satu proyek interaktif dalam satu waktu.
+            </>
+          ) : (
+            <>
+              I&apos;m not just a <span className="font-semibold text-primary">developer</span>. I&apos;m a problem solver, a creative thinker, and a
+              partner in your digital journey. Let&apos;s bring your <span className="font-semibold text-primary">ideas to life</span> and create
+              experiences that resonate with your audience. Ready to embark on this journey together? Reach out, and let&apos;s make the web a more
+              exciting place, one interactive project at a time.
+            </>
+          )}
         </p>
       </div>
     </section>

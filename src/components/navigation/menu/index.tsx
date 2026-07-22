@@ -2,6 +2,7 @@
 import { StateContext } from 'context/state'
 import { AnimatePresence, motion } from 'framer-motion'
 import { easeDefault } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import { useContext, useRef, useEffect } from 'react'
 import MenuClose from './close'
 import MenuFooter from './footer'
@@ -13,6 +14,7 @@ export const CONTAINER_MENU = 'container-menu'
 
 export default function Menu() {
   const { state } = useContext(StateContext)
+  const { t } = useTranslation()
   const containerRef = useRef<HTMLDivElement | null>(null)
   const lenis = useLenis()
 
@@ -37,7 +39,7 @@ export default function Menu() {
           className="fixed left-0 top-0 z-[90] h-screen w-screen bg-white p-4 md:p-10 lg:p-14"
         >
           <MenuClose />
-          <p className={`font-spartan ${BLUR_HOVER_LINK} mb-4 md:m-0`}>Read more here</p>
+          <p className={`font-spartan ${BLUR_HOVER_LINK} mb-4 md:m-0`}>{t('menu_read_more')}</p>
           <div className="flex h-full w-full flex-col justify-between ">
             <MenuNavigation />
             <MenuFooter />

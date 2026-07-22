@@ -4,6 +4,7 @@ import UpCommingAlert from 'components/common/upcomming-alert'
 import Menu from 'components/navigation/menu'
 import TopNav from 'components/navigation/top-nav'
 import CursorProvider from 'context/cursor'
+import LanguageProvider from 'context/language'
 import StateProvider, { StateContext } from 'context/state'
 import { AnimatePresence, motion } from 'framer-motion'
 import { easeDefault, routes } from 'lib/utils'
@@ -74,14 +75,16 @@ const Page = () => {
 const App = () => {
   return (
     <>
-      <StateProvider>
-        <CursorProvider>
-          <UpCommingAlert />
-          <Cursor />
-          <Menu />
-          <Page />
-        </CursorProvider>
-      </StateProvider>
+      <LanguageProvider>
+        <StateProvider>
+          <CursorProvider>
+            <UpCommingAlert />
+            <Cursor />
+            <Menu />
+            <Page />
+          </CursorProvider>
+        </StateProvider>
+      </LanguageProvider>
     </>
   )
 }

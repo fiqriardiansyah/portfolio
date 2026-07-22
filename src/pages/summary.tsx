@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import withTransition, { PageProps } from 'components/common/with-transition'
 import { routes } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import Description from 'module/summary/sections/description'
 import React from 'react'
 
@@ -11,6 +12,7 @@ import useMenuChange from 'hooks/use-menu-change'
 
 const Summary = ({ asPreview }: PageProps) => {
   const scopeComponentWhenMenuChange = useMenuChange({ asPreview })
+  const { t } = useTranslation()
 
   return (
     <div ref={scopeComponentWhenMenuChange} className="w-screen bg-primary">
@@ -20,7 +22,7 @@ const Summary = ({ asPreview }: PageProps) => {
         <>
           <Experiences />
           <OrnamenPath />
-          <Footer linkTitle="Home" linkTo={routes.index} title="Want to read again?" />
+          <Footer linkTitle={t('nav_home')} linkTo={routes.index} title={t('footer_title_summary')} />
         </>
       )}
     </div>

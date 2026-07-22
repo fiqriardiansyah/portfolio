@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useAnimate, useTransform } from 'framer-motion
 import useSpeedScrollElement from 'hooks/use-speed-scroll-element'
 import Scribby from 'lib/scribby'
 import { easeDefault } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import HandRock from 'module/home/sections/section-interactive/hand-rock'
 import MeIllustrateFace from 'module/home/sections/section-interactive/me-illustrate-face'
 import MeIllustrateHair from 'module/home/sections/section-interactive/me-illustrate-hair'
@@ -18,6 +19,7 @@ import HandPeace from './hand-peace'
 const ExpertiseSnake = lazy(() => import('./expertise-snake'))
 
 const Default = () => {
+  const { t, lang } = useTranslation()
   const [containerScope, containerAnimate] = useAnimate()
 
   const { ref: refHand, scrollYProgress: scrollYHand } = useSpeedScrollElement({ offset: ['start end', 'end start'] })
@@ -106,7 +108,7 @@ const Default = () => {
           </div>
         </div>
         <div className="h-[100vh]">
-          <h2 className="MENU-CHANGE-Y-100 sticky top-[10%] font-poppins text-8xl font-medium text-primary">Welcome To My Interactive Portfolio</h2>
+          <h2 className="MENU-CHANGE-Y-100 sticky top-[10%] font-poppins text-8xl font-medium text-primary">{t('home_welcome_interactive')}</h2>
         </div>
         <div ref={refHand} className="MENU-CHANGE-SCALE-125 flex w-full justify-end">
           <motion.div style={{ y: scrollSpeedHand }}>
@@ -114,9 +116,20 @@ const Default = () => {
           </motion.div>
         </div>
         <motion.p style={{ y: scrollSpeedDesc }} className="CONTAINER MENU-CHANGE-Y-100  pointer-events-none mt-20 text-4xl text-gray-600">
-          Greetings, I&apos;m <span className="font-semibold text-primary">Fiqri Ardiansyah</span>, a seasoned{' '}
-          <span className="font-semibold text-primary">Fullstack Developer</span> with over 5 years of experience. I specialize in crafting web
-          experiences that aren&apos;t just static pages but dynamic journeys. Explore my world of interactive web development.
+          {lang === 'id' ? (
+            <>
+              Halo, saya <span className="font-semibold text-primary">Fiqri Ardiansyah</span>, seorang{' '}
+              <span className="font-semibold text-primary">Fullstack Developer</span> berpengalaman lebih dari 5 tahun. Saya mengkhususkan diri
+              membangun pengalaman web yang tidak sekadar halaman statis, tapi perjalanan yang dinamis. Jelajahi dunia pengembangan web interaktif
+              saya.
+            </>
+          ) : (
+            <>
+              Greetings, I&apos;m <span className="font-semibold text-primary">Fiqri Ardiansyah</span>, a seasoned{' '}
+              <span className="font-semibold text-primary">Fullstack Developer</span> with over 5 years of experience. I specialize in crafting web
+              experiences that aren&apos;t just static pages but dynamic journeys. Explore my world of interactive web development.
+            </>
+          )}
         </motion.p>
         <AnimatePresence>
           <Magnet strength={10} className="MENU-CHANGE-Y-200 z-[-10] mt-4 w-fit">
@@ -134,14 +147,16 @@ const Default = () => {
           </Magnet>
         </AnimatePresence>
         <div className="h-[50vh]">
-          <h2 className="MENU-CHANGE-Y-100 sticky top-[10%] mb-[10%] font-poppins text-8xl font-medium text-primary">Selected Expertise</h2>
+          <h2 className="MENU-CHANGE-Y-100 sticky top-[10%] mb-[10%] font-poppins text-8xl font-medium text-primary">
+            {t('home_selected_expertise')}
+          </h2>
         </div>
         <div ref={refExpertise} className="relative flex h-[300vh] w-full justify-center">
           <div className="w-fit">
             <motion.div className="absolute left-0 top-0 flex h-screen w-full flex-col gap-y-2">
               <ParallaxMarquee baseVelocity={-3} speed={2000}>
                 <div className="MENU-CHANGE-Y-200 mb-4 flex items-center overflow-visible font-poppins text-9xl text-yellow-400">
-                  <span>BUILDING APP IS AN ART</span>
+                  <span>{t('home_building_app_art')}</span>
                   <Magnet strength={10}>
                     <div className="group mx-7 flex h-[100px] w-[100px] items-center justify-center rounded-full border border-solid border-yellow-400 hover:bg-yellow-400">
                       <Magnet>
@@ -153,7 +168,7 @@ const Default = () => {
               </ParallaxMarquee>
               <ParallaxMarquee baseVelocity={1}>
                 <div className="MENU-CHANGE-Y-100 mb-4 flex items-center overflow-visible font-poppins text-9xl text-yellow-400">
-                  <span>EVERY THING IS CANVAS</span>
+                  <span>{t('home_everything_canvas')}</span>
                   <Magnet strength={10}>
                     <div className="group mx-7 flex h-[100px] w-[100px] items-center justify-center rounded-full border border-solid border-yellow-400 hover:bg-yellow-400">
                       <Magnet>
@@ -203,16 +218,29 @@ const Default = () => {
             </motion.div>
           </Magnet>
           <div className="h-[50vh] ">
-            <h2 className="MENU-CHANGE-Y-100 sticky top-[10%] mb-[10%] font-poppins text-8xl font-medium text-primary">Let&apos;s Collaborate</h2>
+            <h2 className="MENU-CHANGE-Y-100 sticky top-[10%] mb-[10%] font-poppins text-8xl font-medium text-primary">
+              {t('home_lets_collaborate')}
+            </h2>
           </div>
           <div className="MENU-CHANGE-SCALE-80 flex w-full justify-center ">
             <HandPeace />
           </div>
           <motion.p className="CONTAINER MENU-CHANGE-Y-100 pointer-events-none mt-20 text-4xl text-gray-500">
-            I'm not just a <span className="font-semibold text-primary">developer</span>. I'm a problem solver, a creative thinker, and a partner in
-            your digital journey. Let's bring your <span className="font-semibold text-primary">ideas to life</span> and create experiences that
-            resonate with your audience. Ready to embark on this journey together? Reach out, and let's make the web a more exciting place, one
-            interactive project at a time.
+            {lang === 'id' ? (
+              <>
+                Saya bukan sekadar <span className="font-semibold text-primary">developer</span>. Saya seorang pemecah masalah, pemikir kreatif, dan
+                partner dalam perjalanan digital Anda. Mari wujudkan <span className="font-semibold text-primary">ide-ide Anda</span> dan ciptakan
+                pengalaman yang berkesan bagi audiens Anda. Siap memulai perjalanan ini bersama? Hubungi saya, dan mari kita jadikan web tempat yang
+                lebih menarik, satu proyek interaktif dalam satu waktu.
+              </>
+            ) : (
+              <>
+                I'm not just a <span className="font-semibold text-primary">developer</span>. I'm a problem solver, a creative thinker, and a partner
+                in your digital journey. Let's bring your <span className="font-semibold text-primary">ideas to life</span> and create experiences
+                that resonate with your audience. Ready to embark on this journey together? Reach out, and let's make the web a more exciting place,
+                one interactive project at a time.
+              </>
+            )}
           </motion.p>
         </div>
       </div>

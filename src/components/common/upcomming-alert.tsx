@@ -1,12 +1,14 @@
 import { StateContext } from 'context/state'
 import { AnimatePresence, motion } from 'framer-motion'
 import { easeDefault } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import React from 'react'
 import { LiaExternalLinkAltSolid } from 'react-icons/lia'
 import { TfiClose } from 'react-icons/tfi'
 
 export default function UpCommingAlert() {
   const { state, setState } = React.useContext(StateContext)
+  const { t } = useTranslation()
 
   const onClose = () => {
     if (setState)
@@ -26,7 +28,7 @@ export default function UpCommingAlert() {
           className="fixed inset-x-5 bottom-5 z-[99] rounded-lg bg-white p-5 shadow-2xl md:left-auto"
         >
           <div className="mb-10 flex items-center justify-between">
-            <h1 className="m-0 mr-10 font-spartan text-xl font-semibold">Try my new project 📝</h1>
+            <h1 className="m-0 mr-10 font-spartan text-xl font-semibold">{t('alert_try_new_project')}</h1>
             <button onClick={onClose}>
               <TfiClose size={14} className="text-xl font-semibold" />
             </button>

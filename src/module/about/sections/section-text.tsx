@@ -1,11 +1,13 @@
 import MakeFirstMoveImg from 'assets/images/make-firt-move.jpg'
 import WithCursorElement from 'components/common/with-cursor-element'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'lib/translations'
 
 export default function SectionText() {
+  const { t } = useTranslation()
   return (
     <div className="CONTAINER flex min-h-screen flex-col items-start justify-center">
-      <p className="MENU-CHANGE-Y-200 font-poppins text-2xl text-white">Dont Be Shy,</p>
+      <p className="MENU-CHANGE-Y-200 font-poppins text-2xl text-white">{t('about_dont_be_shy')}</p>
       <WithCursorElement
         state={{
           element: {
@@ -25,7 +27,7 @@ export default function SectionText() {
           }
         }}
       >
-        <h2 className="MENU-CHANGE-Y-100 font-display text-9xl text-white">Make The First Move.</h2>
+        <h2 className="MENU-CHANGE-Y-100 font-display text-9xl text-white">{t('about_make_first_move')}</h2>
       </WithCursorElement>
     </div>
   )

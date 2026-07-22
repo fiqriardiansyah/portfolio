@@ -9,11 +9,14 @@ import CursorProvider from 'context/cursor'
 import { StateContext } from 'context/state'
 import { motion, useAnimate } from 'framer-motion'
 import { easeDefault } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import { useContext, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const TopNav = () => {
   const { setState, state } = useContext(StateContext)
+  const { lang, setLang } = useTranslation()
+  const location = useLocation()
   const [scope, animate] = useAnimate()
   const linkClass = 'font-spartan text-[#9EB384] text-lg md:text-xl lg:text-2xl'
 
@@ -77,7 +80,7 @@ const TopNav = () => {
         <CursorProvider>
           <Cursor />
           <WithCursorElement fallbackState={{ element: null }} state={{ element: nameCursor.in as any }}>
-            <Link to="/">
+            <Link to={{ pathname: '/', search: location.search }}>
               <Magnet>
                 <span className={linkClass}>FA - {new Date().getFullYear()} ©️</span>
               </Magnet>
@@ -89,13 +92,27 @@ const TopNav = () => {
           <CursorProvider>
             <Cursor />
             <WithCursorElement fallbackState={{ element: null }} state={{ element: langInCursor.in as any }}>
-              <span className={`${linkClass} cursor-not-allowed`}>IN</span>
+              <button
+                type="button"
+                onClick={() => setLang('id')}
+                aria-pressed={lang === 'id'}
+                className={`${linkClass} cursor-pointer ${lang === 'id' ? 'underline' : 'opacity-50'}`}
+              >
+                IN
+              </button>
             </WithCursorElement>
           </CursorProvider>
           <CursorProvider>
             <Cursor />
             <WithCursorElement fallbackState={{ element: null }} state={{ element: langEnCursor.in as any }}>
-              <span className={`${linkClass} cursor-not-allowed`}>EN</span>
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                aria-pressed={lang === 'en'}
+                className={`${linkClass} cursor-pointer ${lang === 'en' ? 'underline' : 'opacity-50'}`}
+              >
+                EN
+              </button>
             </WithCursorElement>
           </CursorProvider>
         </div>

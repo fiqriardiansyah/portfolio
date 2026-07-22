@@ -3,6 +3,7 @@ import RoundedText from 'components/effect/rounded-text'
 import { StateContext } from 'context/state'
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion'
 import { easeDefault, randomNum, routes } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import About from 'pages/about'
 import Home from 'pages/home'
 import Summary from 'pages/summary'
@@ -39,6 +40,7 @@ function ArrowAnimation({ hover }: { hover?: boolean }) {
 }
 
 function TechStamp({ ...props }: HTMLMotionProps<'div'>) {
+  const { t } = useTranslation()
   const techStackIcon = [BiLogoJavascript, BiLogoTypescript, DiReact, SiNextdotjs]
   const [random] = useState(randomNum(techStackIcon.length))
 
@@ -47,7 +49,7 @@ function TechStamp({ ...props }: HTMLMotionProps<'div'>) {
   return (
     <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ delay: 2, duration: 0.7 }} {...props}>
       <RoundedText
-        text="take a look!"
+        text={t('menu_take_a_look')}
         className="absolute right-0 scale-150 border-2 border-solid border-yellow-400"
         textClassName="font-display !text-yellow-400 font-semibold capitalize"
         size={60}
@@ -71,6 +73,7 @@ interface NavigationLinkProps {
 function NavigationLink({ onClose, linkTo, text, preview }: NavigationLinkProps) {
   const hoverLinkEffect = ['blur', 'opacity-80']
   const { state } = useContext(StateContext)
+  const location = useLocation()
   const [active, setActive] = useState(false)
   const ref = useRef<HTMLAnchorElement | null>(null)
 
@@ -99,7 +102,7 @@ function NavigationLink({ onClose, linkTo, text, preview }: NavigationLinkProps)
     <>
       <Link
         ref={ref}
-        to={linkTo}
+        to={{ pathname: linkTo, search: location.search }}
         className={`flex w-fit items-center ${BLUR_HOVER_LINK}`}
         onClick={onClose}
         onFocus={activeHandler}
@@ -134,6 +137,7 @@ function NavigationLink({ onClose, linkTo, text, preview }: NavigationLinkProps)
 
 export default function MenuNavigation() {
   const { setState } = useContext(StateContext)
+  const { t } = useTranslation()
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -148,7 +152,7 @@ export default function MenuNavigation() {
       e.preventDefault()
       closeMenu()
       setTimeout(() => {
-        navigate(to)
+        navigate({ pathname: to, search: location.search })
       }, 1000)
     }
   }
@@ -156,17 +160,17 @@ export default function MenuNavigation() {
   const allRoutes = [
     {
       linkTo: routes.index,
-      text: 'HOME',
+      text: t('nav_home'),
       preview: <Home asPreview />
     },
     {
       linkTo: routes.about,
-      text: 'ABOUT',
+      text: t('nav_about'),
       preview: <About asPreview />
     },
     {
       linkTo: routes.summary,
-      text: 'SUMMARY',
+      text: t('nav_summary'),
       preview: <Summary asPreview />
     }
   ]

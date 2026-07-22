@@ -7,6 +7,8 @@ import WithCursorElement from 'components/common/with-cursor-element'
 import { CursorContext } from 'context/cursor'
 import { StateContext } from 'context/state'
 import { AnimatePresence, animate, motion, useMotionValue, useTransform } from 'framer-motion'
+import { Lang } from 'context/language'
+import { useTranslation } from 'lib/translations'
 import { useContext, useEffect, useRef, useState } from 'react'
 import Lottie from 'react-lottie'
 
@@ -46,9 +48,9 @@ const defaultOptions = {
   }
 }
 
-const paragraph = [
+const getParagraph = (lang: Lang) => [
   <div className="flex items-center" key="front-enddeveloper">
-    fullstack developer
+    {lang === 'id' ? 'pengembang fullstack' : 'fullstack developer'}
     <Lottie
       options={{ ...defaultOptions, animationData: RocketAnimation }}
       height={100}
@@ -58,7 +60,7 @@ const paragraph = [
     />
   </div>,
   <div className="flex items-center" key="laughinglayouts">
-    laughing @layouts!
+    {lang === 'id' ? 'ketawa bareng layout!' : 'laughing @layouts!'}
     <Lottie
       options={{ ...defaultOptions, animationData: NyanCatAnimation }}
       height={50}
@@ -68,7 +70,7 @@ const paragraph = [
     />
   </div>,
   <div className="flex items-center" key="designingdreams">
-    designing dreams
+    {lang === 'id' ? 'merancang mimpi' : 'designing dreams'}
     <Lottie
       options={{ ...defaultOptions, animationData: MercusuarAnimation }}
       height={80}
@@ -100,9 +102,13 @@ const fetchAllImagesFromTxt = async () => {
   }
 }
 
+const paragraphCount = getParagraph('en').length
+
 export default function Introduction() {
   const { setState } = useContext(StateContext)
   const { setState: setStateCursor } = useContext(CursorContext)
+  const { t, lang } = useTranslation()
+  const paragraph = getParagraph(lang)
 
   const [currParagraph, setCurrParagraph] = useState(0)
   const progressRef = useRef<HTMLDivElement | null>(null)
@@ -139,7 +145,7 @@ export default function Introduction() {
   }
 
   const startTitleTextAnimate = () => {
-    titleTextAnimate = animate(currentPr, paragraph.length - 1, {
+    titleTextAnimate = animate(currentPr, paragraphCount - 1, {
       duration: animationDuration,
       delay: waitingToStart / 1000,
       onUpdate(latest) {
@@ -206,7 +212,7 @@ export default function Introduction() {
           transition={{ duration: waitingToStart / 1000 }}
           className="flex min-w-[300px] items-center"
         >
-          <h1 className="m-0 font-spartan text-xl font-light text-primary md:text-3xl">I Am</h1>
+          <h1 className="m-0 font-spartan text-xl font-light text-primary md:text-3xl">{t('intro_i_am')}</h1>
           <AnimatePresence custom={currParagraph}>
             <motion.div
               className="absolute left-10 m-0 whitespace-nowrap font-spartan text-xl font-light capitalize text-primary md:left-16 md:text-3xl"
@@ -226,7 +232,7 @@ export default function Introduction() {
           </AnimatePresence>
         </motion.div>
       </WithCursorElement>
-      {currParagraph !== paragraph.length - 1 ? (
+      {currParagraph !== paragraphCount - 1 ? (
         <motion.div
           initial={{ opacity: 0, scale: 0.8, display: 'flex' }}
           animate={{ opacity: 1, scale: 1, display: 'flex' }}

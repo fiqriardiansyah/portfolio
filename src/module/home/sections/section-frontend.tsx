@@ -3,6 +3,7 @@ import SatisfiedImg from 'assets/images/satisfied-thumbs-up.gif'
 import FunctionalImg from 'assets/images/start-stop-engine.png'
 import WithCursorElement from 'components/common/with-cursor-element'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'lib/translations'
 
 const functionalityCursor = {
   element: (
@@ -45,13 +46,14 @@ const satisfiedCursor = {
 }
 
 export default function SectionFrontendDev() {
+  const { t } = useTranslation()
   return (
     <section className="relative z-[1000] min-h-[100vh] w-full bg-secondary pt-10">
       <div className="CONTAINER flex h-screen items-center ">
         <p className="MENU-CHANGE-Y-200 font-spartan text-6xl font-light xl:text-8xl 2xl:text-8xl 2xl:leading-loose">
-          <WithCursorElement state={{ element: functionalityCursor as any }}>Functionality</WithCursorElement> +{' '}
-          <WithCursorElement state={{ element: aetheticsCursor as any }}>Aesthetics</WithCursorElement> =
-          <WithCursorElement state={{ element: satisfiedCursor as any }}>Satisfaction</WithCursorElement>
+          <WithCursorElement state={{ element: functionalityCursor as any }}>{t('home_functionality')}</WithCursorElement> +{' '}
+          <WithCursorElement state={{ element: aetheticsCursor as any }}>{t('home_aesthetics')}</WithCursorElement> =
+          <WithCursorElement state={{ element: satisfiedCursor as any }}>{t('home_satisfaction')}</WithCursorElement>
         </p>
       </div>
     </section>

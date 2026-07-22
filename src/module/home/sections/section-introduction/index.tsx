@@ -10,6 +10,7 @@ import SpecializingFrontendSection from './specializing-frontend-section'
 import { StateContext } from 'context/state'
 import SectionIntroductionMobile from 'module/mobile/home/section-introduction'
 import useSpeedScrollElement from 'hooks/use-speed-scroll-element'
+import { useTranslation } from 'lib/translations'
 
 const lottieOptions = {
   loop: true,
@@ -32,6 +33,7 @@ const Default = ({ asPreview }: { asPreview: any }) => {
 
 const SectionIntroduction = ({ asPreview }: { asPreview: any }) => {
   const { state } = React.useContext(StateContext)
+  const { t } = useTranslation()
 
   const whenScrollRef = React.useRef(false)
   const [scope, animate] = useAnimate()
@@ -69,9 +71,9 @@ const SectionIntroduction = ({ asPreview }: { asPreview: any }) => {
       </div>
       <motion.div ref={scope} initial={{ opacity: 0 }} className="MENU-CHANGE-Y-100 sticky bottom-5 flex justify-center">
         <div className="flex items-center text-xl capitalize text-white">
-          scroll
+          {t('home_scroll')}
           <Lottie options={lottieOptions} height={50} width={50} isClickToPauseDisabled />
-          down
+          {t('home_down')}
         </div>
       </motion.div>
     </section>

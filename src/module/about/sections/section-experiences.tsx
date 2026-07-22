@@ -9,11 +9,13 @@ import IncitImg from 'assets/images/incit-summary.png'
 import Magnet from 'components/effect/magnet'
 import { motion } from 'framer-motion'
 import { easeDefault } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import ExperienceRow, { ExperienceRowProps } from 'module/about/experience-row'
 import LetterSpacingTitle from 'module/about/letter-spacing-title'
 import { AiOutlineArrowDown } from 'react-icons/ai'
 
 export default function SectionExperiences() {
+  const { t } = useTranslation()
   const experiences: ExperienceRowProps[] = [
     {
       text1: 'INCIT',
@@ -53,7 +55,7 @@ export default function SectionExperiences() {
           </Magnet>
         </motion.div>
       </Magnet>
-      <LetterSpacingTitle>Experiences</LetterSpacingTitle>
+      <LetterSpacingTitle>{t('about_experiences')}</LetterSpacingTitle>
       <div className="MENU-CHANGE-Y-100-STAGGER">
         {experiences.map((exp, i) => (
           <ExperienceRow {...exp} key={i} />
@@ -73,7 +75,7 @@ export default function SectionExperiences() {
           </Magnet>
         </motion.div>
       </Magnet>
-      <LetterSpacingTitle>Selected Projects</LetterSpacingTitle>
+      <LetterSpacingTitle>{t('about_selected_projects')}</LetterSpacingTitle>
       <div className="MENU-CHANGE-Y-100-STAGGER">
         {selectedProjects.map((exp, i) => (
           <ExperienceRow {...exp} key={i} />
@@ -93,7 +95,7 @@ export default function SectionExperiences() {
           </Magnet>
         </motion.div>
       </Magnet>
-      <LetterSpacingTitle>Selected Activities</LetterSpacingTitle>
+      <LetterSpacingTitle>{t('about_selected_activities')}</LetterSpacingTitle>
       <div className="MENU-CHANGE-Y-100-STAGGER">
         {actvities.map((exp, i) => (
           <ExperienceRow {...exp} key={i} />

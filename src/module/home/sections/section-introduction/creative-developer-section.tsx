@@ -6,6 +6,7 @@ import { StateContext } from 'context/state'
 import { motion, useTransform } from 'framer-motion'
 import useSpeedScrollElement from 'hooks/use-speed-scroll-element'
 import { SLIGHT_MOVE } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import Meanderer from 'lib/meanderer'
 import React from 'react'
 import { BsArrowDown } from 'react-icons/bs'
@@ -59,6 +60,7 @@ const responsiveHeartPathMotion = new Meanderer({
 const CreativeDeveloperSection = () => {
   const [pathMotion, setPathMotion] = React.useState('')
   const { state } = React.useContext(StateContext)
+  const { t } = useTranslation()
   const lenis = useLenis()
 
   const clickToHello = (time: number) => {
@@ -117,7 +119,7 @@ const CreativeDeveloperSection = () => {
             style={{ opacity: opacityText, scale: scaleText, filter: blurText }}
             className=" font-spartan text-7xl font-semibold text-secondary first-line:text-center md:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            Creative Developer Based In
+            {t('home_creative_dev_lead')}
             {state?.isSmallDevice ? (
               ' Indonesia'
             ) : (

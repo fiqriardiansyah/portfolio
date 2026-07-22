@@ -2,6 +2,7 @@ import WithCursorElement from 'components/common/with-cursor-element'
 import Close from 'components/cursor-hover/close'
 import Magnet from 'components/effect/magnet'
 import { StateContext } from 'context/state'
+import { useTranslation } from 'lib/translations'
 import { useContext } from 'react'
 import { BLUR_HOVER_LINK } from '.'
 import CursorProvider from 'context/cursor'
@@ -18,6 +19,7 @@ const menuCursor = {
 
 export default function MenuClose() {
   const { setState } = useContext(StateContext)
+  const { t } = useTranslation()
 
   const onClose = () => {
     if (setState) {
@@ -30,7 +32,7 @@ export default function MenuClose() {
       <WithCursorElement state={{ element: menuCursor.in as any }} fallbackState={{ element: menuCursor.out }}>
         <Magnet className={`absolute right-4 top-5 md:right-10 lg:right-14 ${BLUR_HOVER_LINK}`}>
           <button tabIndex={0} onClick={onClose}>
-            CLOSE
+            {t('menu_close')}
           </button>
         </Magnet>
       </WithCursorElement>

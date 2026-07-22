@@ -5,6 +5,7 @@ import Bubble from 'components/cursor-hover/bubble'
 import { motion, useTransform } from 'framer-motion'
 import useSpeedScrollElement from 'hooks/use-speed-scroll-element'
 import { SLIGHT_MOVE } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import Meanderer from 'lib/meanderer'
 import React from 'react'
 import { BsArrowDown } from 'react-icons/bs'
@@ -56,6 +57,7 @@ const responsiveSkullMotion = new Meanderer({
 })
 const SpecializingFrontendSection = () => {
   const [pathMotion, setPathMotion] = React.useState('')
+  const { t } = useTranslation()
   const lenis = useLenis()
 
   const { ref, scrollYProgress } = useSpeedScrollElement({ offset: ['start start', 'end start'] })
@@ -116,7 +118,7 @@ const SpecializingFrontendSection = () => {
             style={{ opacity: tOpacity, scale: tScale, filter: blurThird }}
             className="text-center font-spartan text-6xl font-semibold text-secondary xl:text-8xl 2xl:text-9xl"
           >
-            Specializing In Web{' '}
+            {t('home_specializing_lead')}
             <WithCursorElement
               className="z-[99] cursor-default"
               state={{ element: yesGoodHover as any }}
@@ -150,7 +152,7 @@ const SpecializingFrontendSection = () => {
                 </svg>
               </div>
             </WithCursorElement>
-            Development
+            {t('home_specializing_trail')}
           </motion.h1>
         </div>
       </div>

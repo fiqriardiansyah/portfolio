@@ -3,11 +3,13 @@ import YourselfImg from 'assets/images/yourself.png'
 import { StateContext } from 'context/state'
 import { motion, useTransform } from 'framer-motion'
 import useSpeedScrollElement from 'hooks/use-speed-scroll-element'
+import { useTranslation } from 'lib/translations'
 import StaggerSlideElementHome from 'module/home/stagger-slide-element'
 import React from 'react'
 
 const LetMeIntroduceSection = ({ asPreview }: { asPreview: any }) => {
   const { state } = React.useContext(StateContext)
+  const { t } = useTranslation()
 
   const { ref: firstRef, scrollYProgress: fScrollY } = useSpeedScrollElement({ offset: ['start start', 'end end'] })
   const letMeIntroX = useTransform(fScrollY, [0, 1], ['0', '-100%'])
@@ -27,7 +29,7 @@ const LetMeIntroduceSection = ({ asPreview }: { asPreview: any }) => {
             perLetter={false}
             tag="h1"
           >
-            Let Me Introduce
+            {t('home_lets_introduce')}
           </StaggerSlideElementHome>
         </motion.div>
         <motion.div style={{ x: meSelfX }}>
@@ -39,7 +41,7 @@ const LetMeIntroduceSection = ({ asPreview }: { asPreview: any }) => {
             className="text-center font-display text-6xl text-secondary md:text-8xl xl:text-8xl 2xl:text-[10rem]"
             perLetter={false}
           >
-            My self
+            {t('home_my_self')}
             <div className="hidden h-[150px] w-[150px] overflow-hidden md:block">
               <motion.img className="h-full w-full object-cover" whileHover={{ scale: 1.3 }} transition={{ duration: 0.5 }} src={WatchImg} />
             </div>
@@ -57,7 +59,7 @@ const LetMeIntroduceSection = ({ asPreview }: { asPreview: any }) => {
             <div className="hidden h-[150px] w-[150px] overflow-hidden md:block">
               <motion.img className="h-full w-full object-cover" whileHover={{ scale: 1.3 }} transition={{ duration: 0.5 }} src={YourselfImg} />
             </div>
-            As Developer.
+            {t('home_as_developer')}
           </StaggerSlideElementHome>
         </motion.div>
       </motion.div>

@@ -1,10 +1,12 @@
 import useSpeedScrollElement from 'hooks/use-speed-scroll-element'
 import { motion, useSpring, useTransform, useVelocity } from 'framer-motion'
 import { StateContext } from 'context/state'
+import { useTranslation } from 'lib/translations'
 import React from 'react'
 
 const OrnamenPath = () => {
   const { state } = React.useContext(StateContext)
+  const { t } = useTranslation()
   const { ref, scrollYProgress } = useSpeedScrollElement({ offset: ['start start', 'end center'] })
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1])
   const opacity = useTransform(scrollYProgress, [0, 0.01], [0, 1])
@@ -17,7 +19,7 @@ const OrnamenPath = () => {
   if (state?.isSmallDevice) {
     return (
       <div className="CONTAINER flex h-screen items-center">
-        <h2 className="MENU-CHANGE-Y-100 font-display text-7xl font-semibold capitalize text-white md:text-8xl">damn you realy want to know me</h2>
+        <h2 className="MENU-CHANGE-Y-100 font-display text-7xl font-semibold capitalize text-white md:text-8xl">{t('summary_know_me')}</h2>
       </div>
     )
   }
@@ -55,7 +57,7 @@ const OrnamenPath = () => {
           </div>
         </div>
         <motion.h2 style={{ opacity: opacityText }} className="MENU-CHANGE-Y-100 font-display text-9xl font-semibold capitalize text-white">
-          damn you realy want to know me
+          {t('summary_know_me')}
         </motion.h2>
       </div>
     </div>

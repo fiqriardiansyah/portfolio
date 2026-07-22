@@ -2,6 +2,7 @@ import { PageProps } from 'components/common/with-transition'
 import ParallaxMarquee from 'components/effect/parallax-marquee'
 import SpeedScrollElement from 'components/effect/speed-scroll-element'
 import { StateContext } from 'context/state'
+import { useTranslation } from 'lib/translations'
 import MarqueeStagger from 'module/about/marquee-stagger'
 import StaggerSlideElementAbout from 'module/about/stagger-slide-about'
 import SectionHeadMobile, { StackedImage } from 'module/mobile/about/section-head'
@@ -11,6 +12,7 @@ const PhotoDistortion = React.lazy(() => import('../photo-distortion'))
 
 const Default = ({ asPreview }: PageProps) => {
   const { state } = React.useContext(StateContext)
+  const { t } = useTranslation()
 
   return (
     <>
@@ -22,7 +24,7 @@ const Default = ({ asPreview }: PageProps) => {
           startDelay={0.5}
           className="font-display text-9xl font-semibold text-secondary"
         >
-          <ParallaxMarquee baseVelocity={-1}>ABOUT ME - </ParallaxMarquee>
+          <ParallaxMarquee baseVelocity={-1}>{t('about_me_marquee')}</ParallaxMarquee>
         </MarqueeStagger>
         <MarqueeStagger
           tag="div"
@@ -31,7 +33,7 @@ const Default = ({ asPreview }: PageProps) => {
           startDelay={1}
           className="font-display text-9xl font-semibold text-secondary"
         >
-          <ParallaxMarquee baseVelocity={-2}>ABOUT ME - </ParallaxMarquee>
+          <ParallaxMarquee baseVelocity={-2}>{t('about_me_marquee')}</ParallaxMarquee>
         </MarqueeStagger>
         <MarqueeStagger
           tag="div"
@@ -40,7 +42,7 @@ const Default = ({ asPreview }: PageProps) => {
           startDelay={1.5}
           className="font-display text-9xl font-semibold text-secondary"
         >
-          <ParallaxMarquee baseVelocity={-3}>ABOUT ME - </ParallaxMarquee>
+          <ParallaxMarquee baseVelocity={-3}>{t('about_me_marquee')}</ParallaxMarquee>
         </MarqueeStagger>
       </div>
       <div className="CONTAINER mt-20 min-h-[150vh]">

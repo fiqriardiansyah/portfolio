@@ -1,6 +1,7 @@
 import SpeedScrollElement from 'components/effect/speed-scroll-element'
 import { motion } from 'framer-motion'
 import { easeDefault } from 'lib/utils'
+import { useTranslation } from 'lib/translations'
 import StaggerSlideElementAbout from 'module/about/stagger-slide-about'
 
 export const StackedImage = () => {
@@ -19,16 +20,20 @@ export const StackedImage = () => {
 }
 
 export default function SectionHeadMobile() {
+  const { t } = useTranslation()
+  const aboutMeBase = t('about_me_marquee').replace(/\s*-\s*$/, '')
+  const aboutMeHeading = `${aboutMeBase} - ${aboutMeBase} - ${aboutMeBase}`
+
   return (
     <div className="MENU-CHANGE-Y-100-STAGGER w-screen overflow-x-hidden">
       <motion.h1 style={{ x: -100 }} className="CHILD-STAGGER mt-2 whitespace-nowrap font-display text-6xl font-semibold text-secondary">
-        ABOUT ME - ABOUT ME - ABOUT ME
+        {aboutMeHeading}
       </motion.h1>
       <motion.h1 style={{ x: -200 }} className="CHILD-STAGGER mt-2 whitespace-nowrap font-display text-6xl font-semibold text-secondary">
-        ABOUT ME - ABOUT ME - ABOUT ME
+        {aboutMeHeading}
       </motion.h1>
       <motion.h1 style={{ x: -300 }} className="CHILD-STAGGER mt-2 whitespace-nowrap font-display text-6xl font-semibold text-secondary">
-        ABOUT ME - ABOUT ME - ABOUT ME
+        {aboutMeHeading}
       </motion.h1>
       <div className="h-[10vh]"></div>
       <div className="CONTAINER">
